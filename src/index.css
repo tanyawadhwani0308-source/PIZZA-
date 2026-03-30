@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-tenya-dark text-tenya-cream font-body overflow-x-hidden antialiased;
+  }
+}
+
+@layer utilities {
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.15;
+    filter: url(#cinematic-noise);
+  }
+
+  /* Text stroke effect for the drama typography */
+  .text-stroke-accent {
+    -webkit-text-stroke: 1px #FFC107;
+    color: transparent;
+  }
+
+  .clip-checkerboard {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Custom CSS to hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #100E0E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D41B2C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFC107;
+}
