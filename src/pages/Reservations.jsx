@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const initialForm = {
   name: '',
@@ -43,7 +45,7 @@ export default function Reservations() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Required field check
@@ -64,24 +66,25 @@ export default function Reservations() {
     setStatus('submitting');
     setErrorMsg('');
 
-    // Log reservation data (replace with Firebase once Firestore rules are configured)
-    console.log('📋 Reservation submitted:', {
-      name: form.name,
-      email: form.email,
-      phone: form.phone,
-      date: form.date,
-      time: form.time,
-      partySize: form.partySize,
-      specialRequests: form.specialRequests,
-      createdAt: new Date().toISOString(),
-      status: 'pending',
-    });
-
-    // Simulate a brief server delay, then confirm
-    setTimeout(() => {
+    try {
+      await addDoc(collection(db, 'reservations'), {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        date: form.date,
+        time: form.time,
+        partySize: form.partySize,
+        specialRequests: form.specialRequests,
+        createdAt: serverTimestamp(),
+        status: 'pending',
+      });
       setStatus('success');
       setForm(initialForm);
-    }, 1000);
+    } catch (err) {
+      console.error('Reservation error:', err);
+      setErrorMsg('Something went wrong, please try again.');
+      setStatus('error');
+    }
   };
 
   const getLabelClass = (rotate = '') =>

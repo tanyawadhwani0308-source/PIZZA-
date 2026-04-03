@@ -1,17 +1,15 @@
-// Firebase configuration for Tenya's Pizza
-// To complete setup: replace the placeholder values below with your actual
-// Firebase project credentials from https://console.firebase.google.com
+// Firebase configuration — Tenya's Pizza (project: tenya-pizza)
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "YOUR_API_KEY",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "YOUR_AUTH_DOMAIN",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "YOUR_PROJECT_ID",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "YOUR_STORAGE_BUCKET",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "YOUR_MESSAGING_SENDER_ID",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || "YOUR_APP_ID",
+  apiKey: "AIzaSyCkFN-EgG3HO2UZQ9mgvjeFv6IggPeXFwk",
+  authDomain: "tenya-pizza.firebaseapp.com",
+  projectId: "tenya-pizza",
+  storageBucket: "tenya-pizza.firebasestorage.app",
+  messagingSenderId: "485847030144",
+  appId: "1:485847030144:web:af333101f38427827e4965",
 };
 
 const app = initializeApp(firebaseConfig);
