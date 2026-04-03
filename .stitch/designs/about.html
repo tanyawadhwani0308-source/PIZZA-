@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@500;700&amp;family=Caveat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#603d16",
+              "surface-container": "#efeeea",
+              "surface-container-highest": "#e4e2de",
+              "surface-variant": "#e4e2de",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#92030f",
+              "error-container": "#ffdad6",
+              "primary": "#8f000d",
+              "inverse-surface": "#30312e",
+              "secondary": "#586330",
+              "surface-container-low": "#f5f3ef",
+              "surface-dim": "#dbdad6",
+              "background": "#F5F0E8",
+              "surface-container-high": "#eae8e4",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#d8e6a6",
+              "outline": "#8e706d",
+              "on-secondary-fixed-variant": "#404b1b",
+              "primary-container": "#b22222",
+              "tertiary-fixed-dim": "#f0bd8b",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#5a403e",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdcbd",
+              "on-tertiary-fixed-variant": "#623f18",
+              "on-secondary-container": "#5c6834",
+              "outline-variant": "#e2beba",
+              "inverse-on-surface": "#f2f0ed",
+              "primary-fixed": "#ffdad6",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-bright": "#F5F0E8",
+              "on-background": "#1b1c1a",
+              "surface": "#F5F0E8",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#ffb4ac",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#bfcd8f",
+              "on-tertiary-container": "#ffcb9a",
+              "on-surface": "#1b1c1a",
+              "on-secondary-fixed": "#171e00",
+              "surface-tint": "#b52424",
+              "on-tertiary-fixed": "#2c1600",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#dbe9a9",
+              "on-primary-container": "#ffc8c2",
+              "tertiary-container": "#7b542b",
+              "on-primary-fixed": "#410003"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"],
+              "accent": ["Caveat", "cursive"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #F5F0E8;
+            background-image: 
+                /* Subtle gingham pattern at 10% opacity */
+                linear-gradient(90deg, rgba(143, 0, 13, 0.05) 50%, transparent 50%),
+                linear-gradient(rgba(143, 0, 13, 0.05) 50%, transparent 50%);
+            background-size: 40px 40px;
+        }
+        .organic-border {
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+        }
+        .hand-drawn-underline {
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 15 Q 50 5 100 15 T 195 10' stroke='%238e706d' stroke-width='2' fill='none' opacity='0.4'/%3E%3C/svg%3E");
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+        .wobbly-button {
+            clip-path: polygon(2% 5%, 98% 0%, 100% 95%, 5% 100%);
+        }
+        .taped-photo::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+            width: 60px;
+            height: 25px;
+            background-color: rgba(255, 220, 189, 0.4);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="bg-[#F5F0E8]/95 dark:bg-stone-900 border-b-4 border-double border-[#e2beba]/30 fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-3xl font-headline font-black text-[#8f000d] dark:text-red-500 italic">Tenya’s Pizza</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-headline tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Home</a>
+<a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-headline tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Menu</a>
+<a class="text-[#8f000d] dark:text-red-400 border-b-2 border-[#8f000d] pb-1 font-bold font-headline tracking-tight text-lg hover:rotate-1 transition-transform" href="#">About</a>
+<a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-headline tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Gallery</a>
+<a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-headline tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Order</a>
+<a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-headline tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Reserve</a>
+<a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-headline tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Contact</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-[#8f000d]">menu</span>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-screen-xl mx-auto overflow-hidden">
+<!-- Hero Section -->
+<section class="flex flex-col lg:flex-row items-center gap-16 mb-32 relative">
+<!-- Decorative Doodle -->
+<div class="absolute -top-10 -left-10 opacity-20 pointer-events-none hidden lg:block">
+<span class="material-symbols-outlined text-[120px] text-secondary rotate-12">potted_plant</span>
+</div>
+<div class="lg:w-1/2 space-y-8 z-10">
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-primary font-black leading-[1.1] tracking-tighter">
+                    We Didn’t Open a <br/>
+<span class="relative">
+                        Restaurant.
+                        <span class="absolute -bottom-2 left-0 w-full h-4 bg-tertiary-fixed -z-10 opacity-60"></span>
+</span> <br/>
+                    We Built a World.
+                </h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant leading-relaxed max-w-xl">
+                    Tenya’s Pizza was born from one obsession — the perfect pizza. Not the kind that arrives in 30 minutes. The kind that takes three days of fermentation, a wood-fired oven, and someone who genuinely cares. Come hungry. Leave unreasonably happy.
+                </p>
+<div class="pt-4 flex items-center gap-6">
+<button class="bg-secondary text-white px-10 py-5 text-xl font-headline font-bold wobbly-button hover:rotate-1 active:scale-95 transition-all shadow-md">
+                        Meet Our Menu
+                    </button>
+<div class="flex flex-col">
+<span class="font-label text-sm uppercase tracking-widest text-tertiary font-bold">Nonna Approved</span>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 relative">
+<div class="relative bg-surface-container-lowest p-4 organic-border shadow-md transform rotate-2">
+<img alt="Wood-fired oven" class="w-full aspect-[4/5] object-cover organic-border" data-alt="Hand-sketched artistic illustration of a rustic brick wood-fired pizza oven with glowing orange embers and soft smoke rising" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzVGPTHLc54-SfQxu6WKVoBrLfFvYg3Umk9wMcjpTU3O5ExRLMQKPUaEuZdBEdbjyWvrmPDE9QgzJ-IU8UHBEUevX0i3A4KFvrHJKpo3mpkC9pJ-UXFgX3iNOQ7ztRLd0Wl9xC3p69Alw2XWAuyXYWL4lhItaPhPPQk8OrxwVsaT69jHTaAD-A21dLiAwU-gB4gBKu4gwI1nbVBsbCGA8nR8N7Q62x5KdMg6CgI2mWJMjcbN1N8gX-T8RSJ_rmU36tqVoZvUhnuQ"/>
+<div class="absolute -bottom-6 -right-6 bg-tertiary-fixed p-6 organic-border transform -rotate-3 z-20">
+<p class="font-accent text-tertiary text-2xl font-bold">"The heart of the home."</p>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-surface-container opacity-40 rounded-full blur-xl"></div>
+</div>
+</section>
+<!-- The Three Pillars - Bento Style -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32">
+<div class="md:col-span-7 bg-surface-container-low p-12 organic-border flex flex-col justify-center relative overflow-hidden group">
+<span class="material-symbols-outlined text-secondary text-6xl mb-6">timer</span>
+<h3 class="font-headline text-4xl text-primary font-black mb-4">72-Hour Patience</h3>
+<p class="text-lg leading-relaxed text-on-surface-variant max-w-md">
+                    Our dough is never rushed. It breathes, matures, and develops its complex personality over three full sunrises. The result? A crust that's light as air yet holds the weight of tradition.
+                </p>
+<div class="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[300px]">grain</span>
+</div>
+</div>
+<div class="md:col-span-5 bg-tertiary text-on-tertiary p-12 organic-border transform -rotate-1">
+<span class="material-symbols-outlined text-tertiary-fixed text-6xl mb-6">local_fire_department</span>
+<h3 class="font-headline text-4xl font-black mb-4">The Ember Kiss</h3>
+<p class="text-lg leading-relaxed opacity-90">
+                    900 degrees of white-oak heat. It blisters the edges, melts the fresh buffalo mozzarella, and chars the basil in exactly 90 seconds. It's violent, it's beautiful, it's pizza.
+                </p>
+</div>
+<div class="md:col-span-5 bg-secondary text-white p-12 organic-border relative group">
+<span class="material-symbols-outlined text-secondary-fixed text-6xl mb-6">eco</span>
+<h3 class="font-headline text-4xl font-black mb-4">Garden Origins</h3>
+<p class="text-lg leading-relaxed opacity-90">
+                    If we didn't grow it, we know the person who did. Our tomatoes come from the volcanic soil of San Marzano, and our olive oil is pressed by people who still sing while they work.
+                </p>
+</div>
+<div class="md:col-span-7 bg-white p-1 flex flex-col md:flex-row gap-4 organic-border shadow-sm border border-outline-variant/30">
+<div class="md:w-1/2 relative taped-photo">
+<img alt="Dough prep" class="w-full h-full object-cover rounded-sm" data-alt="Close-up of artisan hands dusted with flour kneading pizza dough on a rustic wooden table with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrYwBRztbW4RdVzUDiqJRdxZs-kUDXc_QNrdCRVHazDqhKT-cbAyiQ-y_ntPW1EDFOVRMoY4I8nLutfXOMuVKL89grpwLNp783AzpIGq0wulD2tMziDtNt-e3CHO3W8r-gpObSBjVmeya0YSq5ix_iqSJ0WmcbKeuKz9xHGOI41_eKMBZLux5JPU2QKTySUfGIiFpq4glGP6vbfx9m3-BEO4S-GxH96biuPogXYXbPyQjQ8eFB7sjfySRCbV7q1J2FE1umjFJq6w"/>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-center">
+<h3 class="font-headline text-3xl text-tertiary font-bold mb-2">Built with Obsession</h3>
+<p class="text-on-surface-variant font-accent text-xl">"We don't serve food. We serve the memory of how food used to taste."</p>
+<div class="mt-4 flex gap-2">
+<div class="w-12 h-1 bg-primary"></div>
+<div class="w-6 h-1 bg-secondary"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="bg-surface-variant p-16 organic-border text-center relative overflow-hidden">
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline text-4xl md:text-5xl text-primary font-black mb-6 italic">Join the Secret Menu Club</h2>
+<p class="text-lg text-on-surface-variant mb-10 font-body">
+                    Get postcards from the kitchen, early access to seasonal bakes, and the occasional recipe we probably shouldn't share.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+<input class="bg-transparent border-b-2 border-outline/30 focus:border-primary focus:ring-0 font-headline text-xl py-3 px-2 w-full placeholder:font-accent placeholder:text-2xl placeholder:text-outline-variant" placeholder="Your ink here..." type="email"/>
+<button class="bg-primary text-white font-headline font-bold px-8 py-3 wobbly-button hover:rotate-2 transition-transform">Sign On</button>
+</div>
+</div>
+<!-- Background Texture Elements -->
+<div class="absolute -top-20 -right-20 w-64 h-64 border-4 border-dashed border-secondary/10 rounded-full"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 border-8 border-double border-primary/5 rounded-full"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#e4e2de] dark:bg-stone-800 border-t-2 border-dashed border-[#586330]/20 w-full">
+<div class="flex flex-col md:flex-row justify-between items-start p-12 gap-8 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-4">
+<div class="text-2xl font-headline font-bold text-[#603d16] dark:text-stone-200">Tenya’s Pizza</div>
+<p class="font-headline text-sm leading-relaxed max-w-xs text-[#603d16]/70">The kind of pizza that takes three days of fermentation and a wood-fired oven. Come hungry.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#8f000d]">social_leaderboard</span>
+<span class="material-symbols-outlined text-[#8f000d]">camera</span>
+<span class="material-symbols-outlined text-[#8f000d]">local_pizza</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h4 class="font-headline font-black text-tertiary uppercase text-xs tracking-widest">Navigation</h4>
+<div class="flex flex-col gap-2">
+<a class="font-headline text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Home</a>
+<a class="font-headline text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Menu</a>
+<a class="font-headline text-sm text-[#8f000d] font-bold underline decoration-[#586330]" href="#">About</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-headline font-black text-tertiary uppercase text-xs tracking-widest">Connect</h4>
+<div class="flex flex-col gap-2">
+<a class="font-headline text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Order</a>
+<a class="font-headline text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Reserve</a>
+<a class="font-headline text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Contact</a>
+</div>
+</div>
+<div class="space-y-4 col-span-2 sm:col-span-1">
+<h4 class="font-headline font-black text-tertiary uppercase text-xs tracking-widest">Location</h4>
+<p class="font-headline text-sm text-[#603d16]">
+                        123 Sourdough Lane<br/>
+                        Naples-by-the-Sea<br/>
+                        ITA 45091
+                    </p>
+</div>
+</div>
+</div>
+<div class="px-12 pb-12 flex justify-between items-center border-t border-[#586330]/10 pt-8 w-full max-w-screen-2xl mx-auto">
+<span class="font-headline text-xs text-[#603d16]/50">© 2025 Tenya’s Pizza</span>
+<span class="font-accent text-lg text-[#603d16]/70">Made with flour &amp; obsession.</span>
+</div>
+</footer>
+</body></html>

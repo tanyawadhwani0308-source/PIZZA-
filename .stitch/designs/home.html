@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tenya's Pizza | Crafted in Naples</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#603d16",
+              "surface-container": "#efeeea",
+              "surface-container-highest": "#e4e2de",
+              "surface-variant": "#e4e2de",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#92030f",
+              "error-container": "#ffdad6",
+              "primary": "#8f000d",
+              "inverse-surface": "#30312e",
+              "secondary": "#586330",
+              "surface-container-low": "#f5f3ef",
+              "surface-dim": "#dbdad6",
+              "background": "#fbf9f5",
+              "surface-container-high": "#eae8e4",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#d8e6a6",
+              "outline": "#8e706d",
+              "on-secondary-fixed-variant": "#404b1b",
+              "primary-container": "#b22222",
+              "tertiary-fixed-dim": "#f0bd8b",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#5a403e",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdcbd",
+              "on-tertiary-fixed-variant": "#623f18",
+              "on-secondary-container": "#5c6834",
+              "outline-variant": "#e2beba",
+              "inverse-on-surface": "#f2f0ed",
+              "primary-fixed": "#ffdad6",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-bright": "#fbf9f5",
+              "on-background": "#1b1c1a",
+              "surface": "#fbf9f5",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#ffb4ac",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#bfcd8f",
+              "on-tertiary-container": "#ffcb9a",
+              "on-surface": "#1b1c1a",
+              "on-secondary-fixed": "#171e00",
+              "surface-tint": "#b52424",
+              "on-tertiary-fixed": "#2c1600",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#dbe9a9",
+              "on-primary-container": "#ffc8c2",
+              "tertiary-container": "#7b542b",
+              "on-primary-fixed": "#410003"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.wobbly-border {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px
+    }
+.parchment-texture {
+    background-color: #F5F0E8;
+    position: relative;
+    }
+.parchment-texture::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(45deg, rgba(178, 34, 34, 0.1) 25%, transparent 25%), 
+        linear-gradient(-45deg, rgba(178, 34, 34, 0.1) 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, rgba(178, 34, 34, 0.1) 75%), 
+        linear-gradient(-45deg, transparent 75%, rgba(178, 34, 34, 0.1) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    pointer-events: none;
+    z-index: 0;
+    }
+.handwritten {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style: italic
+    }
+.taped-edge::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 60px;
+    height: 25px;
+    background: rgba(255, 220, 189, 0.4);
+    transform: rotate(5deg)
+    }</style>
+</head>
+<body class="parchment-texture text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<header class="dark:bg-stone-900 border-b-4 border-double border-[#e2beba]/30 sticky top-0 z-50 bg-[#F5F0E8]">
+<nav class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-3xl font-serif font-black text-[#8f000d] dark:text-red-500 italic">Tenya's Pizza</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-serif tracking-tight font-bold text-lg text-[#8f000d] dark:text-red-400 border-b-2 border-[#8f000d] pb-1 font-bold transition-transform hover:rotate-1" href="#">Home</a>
+<a class="font-serif tracking-tight font-bold text-lg text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] transition-transform hover:rotate-1" href="#">Menu</a>
+<a class="font-serif tracking-tight font-bold text-lg text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] transition-transform hover:rotate-1" href="#">About</a>
+<a class="font-serif tracking-tight font-bold text-lg text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] transition-transform hover:rotate-1" href="#">Gallery</a>
+<a class="font-serif tracking-tight font-bold text-lg text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] transition-transform hover:rotate-1" href="#">Order</a>
+<a class="font-serif tracking-tight font-bold text-lg text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] transition-transform hover:rotate-1" href="#">Reserve</a>
+<a class="font-serif tracking-tight font-bold text-lg text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] transition-transform hover:rotate-1" href="#">Contact</a>
+</div>
+<div class="md:hidden">
+<span class="material-symbols-outlined text-[#8f000d]">menu</span>
+</div>
+</nav>
+</header>
+<main class="relative overflow-hidden z-10">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center px-6 py-20 max-w-7xl mx-auto">
+<!-- Doodle Decorations -->
+<div class="absolute top-10 left-10 opacity-20 pointer-events-none -rotate-12 hidden lg:block">
+<span class="material-symbols-outlined text-9xl text-primary" data-icon="local_pizza">local_pizza</span>
+<p class="handwritten text-tertiary mt-2">Nonna's Secret Crust</p>
+</div>
+<div class="absolute bottom-20 right-10 opacity-20 pointer-events-none rotate-6 hidden lg:block">
+<span class="material-symbols-outlined text-9xl text-secondary" data-icon="eco">eco</span>
+<p class="handwritten text-tertiary mt-2">Fresh Basil Daily</p>
+</div>
+<div class="absolute top-40 right-20 opacity-20 pointer-events-none -rotate-3 hidden lg:block">
+<span class="material-symbols-outlined text-8xl text-primary" data-icon="nutrition">nutrition</span>
+<p class="handwritten text-tertiary mt-2">Vesuvius Tomatoes</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="z-10 space-y-8">
+<div class="inline-block px-4 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-sm font-label uppercase tracking-widest -rotate-1">
+                        Est. 1984
+                    </div>
+<h1 class="font-headline text-6xl md:text-8xl font-black text-primary leading-[1.1] tracking-tight">
+                        Crafted in Naples. <br/>
+<span class="italic text-tertiary">Served with Character.</span>
+</h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed max-w-xl">
+                        Tenya’s Pizza is not just a pizzeria. It’s a mood, a memory, and a <span class="border-b-2 border-secondary/30 italic">very good excuse to eat with your hands.</span>
+</p>
+<div class="flex flex-wrap gap-6 pt-4">
+<button class="bg-primary-container text-on-primary px-10 py-5 font-headline text-xl wobbly-border shadow-lg active:scale-95 duration-75 hover:rotate-1 transition-transform">
+                            Reserve a Table
+                        </button>
+<button class="border-2 border-secondary text-secondary px-10 py-5 font-headline text-xl wobbly-border active:scale-95 duration-75 hover:-rotate-1 transition-transform">
+                            View Our Menu
+                        </button>
+</div>
+</div>
+<div class="relative z-10">
+<div class="relative w-full aspect-square md:aspect-[4/5] bg-surface-container-lowest p-4 wobbly-border shadow-2xl taped-edge">
+<img alt="Artisanal Neapolitan pizza with blistered crust and fresh mozzarella" class="w-full h-full object-cover wobbly-border" data-alt="Close-up of a rustic Neapolitan pizza with a perfectly charred blistered crust, fresh buffalo mozzarella, and vibrant basil leaves on dark wood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM58eWgDBbPqEauJ5ivTz_EwH_vl71NcplacFTrJnpCJHK5VnMPl_fv8j8UIv30upY1XJYzqAE-rGveN8Inib9hreg9ttyr7JUtz-qjXqqAjHtgQL3iSeb1AxDluopIEfaPz6TzlLMJORfj1BrL544Y59eyf2GWdcSKZ1YWherkjFIq9wBOF-shLLhDjH9Xgo30APkm0-uMS5R2Np9oCfWxIxlX0YRhmc566r1Qomcx82PoBVKqkDLnAVsWc0uoYDUGFQU6a1ncQ"/>
+<div class="absolute -bottom-6 -left-6 bg-surface-container-low p-4 wobbly-border shadow-md rotate-3 max-w-[200px]">
+<p class="handwritten text-secondary text-sm leading-tight">
+                                "The crust must speak, the tomato must sing."
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Bento Section -->
+<section class="py-24 px-6 bg-transparent">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl font-bold text-tertiary mb-4 italic underline decoration-secondary/30">The Daily Sheet</h2>
+<p class="font-label text-on-surface-variant">SCRIBBLED FROM THE KITCHEN COUNTER</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 wobbly-border shadow-sm border border-outline-variant/30 flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/2 aspect-video overflow-hidden wobbly-border">
+<img alt="Italian wood fired oven" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="Interior of a traditional Italian wood-fired stone oven with glowing orange embers and a roaring fire in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPTO1HFUusYTLuNAXYNQQliFNzxsz4ASvOpcNR4p8_DPm-cQKsUNfOaDtrvk_bQO82gmYvEQ7sqNrSyHZoiiI1vvjtl2PIKLpZSNM53f1ylhQZR-RJsNoNBFIoRsq49Z-eJ9q4d8_lcFWQKXSwiDlEEIPxvAiOwsXDcTW1JpNze5pwwgvz6hldoWvNr1wC-OrZr0ow1X7XDgMO_URzXKtQUs5Xon2SjUoX92tOgCCtjcYFmlMSLeaSd78wKCaMOe8LpqevslNQMw"/>
+</div>
+<div class="w-full md:w-1/2 space-y-4">
+<h3 class="font-headline text-2xl text-primary">The 90-Second Rule</h3>
+<p class="text-on-surface-variant">Our oven burns at 900 degrees. That means your pizza spends exactly 90 seconds in the fire. Intense? Yes. Necessary? Absolutely.</p>
+<a class="inline-flex items-center text-secondary font-bold hover:underline" href="#">Read the Lore <span class="material-symbols-outlined ml-1">arrow_right_alt</span></a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-secondary-container p-8 wobbly-border shadow-sm flex flex-col justify-between -rotate-2">
+<div class="space-y-4">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="restaurant">restaurant</span>
+<h3 class="font-headline text-2xl text-on-secondary-container leading-tight">Today's <br/>Seasonal Slice</h3>
+<p class="text-on-secondary-container/80 italic">"The Truffle Fig" — Honey drizzled, black truffle oil, and local figs.</p>
+</div>
+<div class="pt-6">
+<span class="handwritten text-tertiary text-lg">$19.00</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 wobbly-border shadow-sm border border-outline-variant/30 rotate-1">
+<div class="h-48 mb-6 overflow-hidden wobbly-border">
+<img alt="Chef preparing pizza dough" class="w-full h-full object-cover" data-alt="Chef's flour-covered hands expertly stretching and tossing raw pizza dough in a sunlit rustic Italian kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYVwf7N8wKeolk4v_5PUm3-SbvJRf5O3-X23YALZPGhSC4hsiZE3SfsBHOpj7P9PZDQKOJ6Jd2GT4AH3F0sJkmQzSfVXOyJs5J4arfbjAXEX4h_afs3S9wREPHSQsVQun0HOgUu4UOKi2A1_OVkz0DbQbxXiS97W00BHZyfzz2Zks3rtz7wCztMJ5WpdvegiT4XpngOyAOtfEYZR-piO4Dg_5HtplG8zXM8l7AaznSNOhETSIG3DNcjTEDEt2zcCcMzqzgN0IIgg"/>
+</div>
+<h3 class="font-headline text-xl text-tertiary mb-2">Wild Ferment</h3>
+<p class="text-sm text-on-surface-variant">Our dough breathes for 72 hours. We don't rush history.</p>
+</div>
+<!-- Card 4 -->
+<div class="md:col-span-2 bg-primary-container text-on-primary p-8 wobbly-border shadow-xl flex items-center justify-between overflow-hidden relative">
+<div class="z-10 space-y-4 max-w-md">
+<h3 class="font-headline text-3xl font-bold">Pizza &amp; Wine Night</h3>
+<p class="text-on-primary/90">Every Tuesday. Bring a bottle, we provide the glasses and the best Margherita in the city. No corkage, just vibes.</p>
+<button class="bg-surface-container-lowest text-primary px-6 py-2 rounded-full font-label text-sm uppercase tracking-widest font-bold">Inquire</button>
+</div>
+<span class="material-symbols-outlined text-[12rem] absolute -right-8 -bottom-8 text-on-primary/10 rotate-12" data-icon="wine_bar">wine_bar</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Doodle Accents in Background -->
+<div class="absolute left-[-5%] top-[50%] opacity-10 text-tertiary hidden xl:block">
+<span class="material-symbols-outlined text-[20rem] rotate-12" data-icon="skillet">skillet</span>
+</div>
+</main>
+<!-- Footer -->
+<footer class="dark:bg-stone-800 border-t-2 border-dashed border-[#586330]/20 shadow-[0_-4px_20px_rgba(27,28,26,0.05)] mt-auto bg-[#F5F0E8] relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-start p-12 gap-8 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-4 max-w-xs">
+<div class="text-2xl font-serif font-bold text-[#603d16] dark:text-stone-200">Tenya’s Pizza</div>
+<p class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400">
+                    Traditional methods, rebellious flavors. We believe every slice should tell a story. Come sit at our table.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-[#8f000d] cursor-pointer hover:scale-110 transition-transform" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-[#8f000d] cursor-pointer hover:scale-110 transition-transform" data-icon="camera">camera</span>
+<span class="material-symbols-outlined text-[#8f000d] cursor-pointer hover:scale-110 transition-transform" data-icon="share">share</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="flex flex-col gap-3">
+<span class="font-headline font-bold text-[#8f000d] dark:text-red-500 uppercase text-xs tracking-widest">Navigation</span>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 font-bold underline decoration-[#586330]" href="#">Home</a>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Menu</a>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">About</a>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Order</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-headline font-bold text-[#8f000d] dark:text-red-500 uppercase text-xs tracking-widest">Legal</span>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Privacy</a>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Terms</a>
+<a class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Cookies</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-headline font-bold text-[#8f000d] dark:text-red-500 uppercase text-xs tracking-widest">Hours</span>
+<p class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400">Mon - Fri: 12pm - 10pm</p>
+<p class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400">Sat - Sun: 11am - 11pm</p>
+</div>
+</div>
+</div>
+<div class="p-12 border-t border-[#586330]/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-serif text-sm leading-relaxed text-[#603d16] dark:text-stone-400">© 2025 Tenya’s Pizza</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-[#586330]">location_on</span>
+<p class="font-serif text-sm text-[#603d16] dark:text-stone-400">123 Via Roma, New York, NY</p>
+</div>
+</div>
+</footer>
+</body></html>

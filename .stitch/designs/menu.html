@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tenya's Pizza — Full Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary": "#603d16",
+            "surface-container": "#F5F0E8",
+            "surface-container-highest": "#EBE4D9",
+            "surface-variant": "#EBE4D9",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#92030f",
+            "error-container": "#ffdad6",
+            "primary": "#8f000d",
+            "inverse-surface": "#30312e",
+            "secondary": "#C4622D",
+            "surface-container-low": "#F9F6F1",
+            "surface-dim": "#dbdad6",
+            "background": "#F5F0E8",
+            "surface-container-high": "#EFE9E0",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#F2E8D9",
+            "outline": "#8e706d",
+            "on-secondary-fixed-variant": "#404b1b",
+            "primary-container": "#8f000d",
+            "tertiary-fixed-dim": "#f0bd8b",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#5a403e",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed": "#ffdcbd",
+            "on-tertiary-fixed-variant": "#623f18",
+            "on-secondary-container": "#C4622D",
+            "outline-variant": "#e2beba",
+            "inverse-on-surface": "#f2f0ed",
+            "primary-fixed": "#ffdad6",
+            "primary-fixed-dim": "#ffb4ac",
+            "surface-bright": "#F5F0E8",
+            "on-background": "#1b1c1a",
+            "surface": "#F5F0E8",
+            "on-error-container": "#93000a",
+            "inverse-primary": "#ffb4ac",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#bfcd8f",
+            "on-tertiary-container": "#ffcb9a",
+            "on-surface": "#1b1c1a",
+            "on-secondary-fixed": "#171e00",
+            "surface-tint": "#8f000d",
+            "on-tertiary-fixed": "#2c1600",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#dbe9a9",
+            "on-primary-container": "#ffffff",
+            "tertiary-container": "#7b542b",
+            "on-primary-fixed": "#410003"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif"],
+            "body": ["Be Vietnam Pro"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .gingham-bg {
+      background-image: 
+        linear-gradient(45deg, rgba(143, 0, 13, 0.05) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(143, 0, 13, 0.05) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(143, 0, 13, 0.05) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(143, 0, 13, 0.05) 75%);
+      background-size: 40px 40px;
+      background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    }
+    .parchment-grain {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    .wobbly-border {
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    }
+    .hand-drawn-underline {
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2,15 Q50,5 100,15 T198,10' fill='none' stroke='%238f000d' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 100% 12px;
+    }
+    .signature-badge {
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+      transform: rotate(-2deg);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen flex flex-col relative overflow-x-hidden gingham-bg">
+<div class="fixed inset-0 parchment-grain z-50"></div>
+<!-- TopNavBar -->
+<header class="bg-[#F5F0E8] border-b-2 border-[#8f000d]/10 z-40 sticky top-0">
+<div class="flex justify-between items-center px-8 py-5 w-full max-w-screen-2xl mx-auto">
+<div class="text-3xl font-serif font-black text-[#8f000d] italic">Tenya's Pizza</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#603d16] hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg transition-colors" href="#">Home</a>
+<a class="text-[#8f000d] border-b-2 border-[#8f000d] pb-1 font-bold font-serif tracking-tight text-lg transition-colors" href="#">Menu</a>
+<a class="text-[#603d16] hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg transition-colors" href="#">About</a>
+<a class="text-[#603d16] hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg transition-colors" href="#">Gallery</a>
+<a class="text-[#603d16] hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg transition-colors" href="#">Order</a>
+<a class="text-[#603d16] hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg transition-colors" href="#">Reserve</a>
+<a class="text-[#603d16] hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg transition-colors" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary p-2">shopping_bag</button>
+<button class="md:hidden material-symbols-outlined text-primary">menu</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Header Section -->
+<section class="relative pt-20 pb-16 px-6 text-center max-w-4xl mx-auto">
+<div class="absolute -top-4 -left-10 opacity-20 transform -rotate-12 select-none pointer-events-none">
+<svg class="text-[#C4622D] fill-current" height="200" viewbox="0 0 200 200" width="200">
+<path d="M100,20 Q120,50 100,80 T100,140 Q80,170 100,190" fill="none" stroke="currentColor" stroke-width="2"></path>
+<circle cx="100" cy="20" r="5"></circle>
+<path d="M100,50 Q130,40 150,60" fill="none" stroke="currentColor" stroke-width="2"></path>
+<path d="M100,100 Q70,110 50,90" fill="none" stroke="currentColor" stroke-width="2"></path>
+</svg>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl font-black text-primary tracking-tight leading-tight mb-4">
+        Our Menu
+      </h1>
+<p class="font-headline text-xl md:text-2xl text-tertiary italic">
+        A heritage of dough, fire &amp; flavour
+      </p>
+<div class="mt-8 flex justify-center">
+<div class="w-32 h-1 bg-outline-variant/30 rounded-full"></div>
+</div>
+</section>
+<!-- Menu Content -->
+<div class="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left Column: Antipasti & Specialty -->
+<div class="lg:col-span-6 space-y-20">
+<!-- Antipasti Section -->
+<section class="bg-surface-container-low p-8 wobbly-border border border-[#8f000d]/10 shadow-sm">
+<div class="flex items-center gap-4 mb-10">
+<h2 class="font-headline text-3xl font-bold text-tertiary">Antipasti</h2>
+<div class="flex-grow border-b border-dashed border-tertiary/20"></div>
+</div>
+<div class="space-y-8">
+<div class="flex justify-between items-start group">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Burrata e Pomodoro</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Fresh burrata, heirloom tomatoes, basil oil</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹650</span>
+</div>
+<div class="flex justify-between items-start group">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Bruschetta al Tartufo</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Charred sourdough, black truffle cream, honey</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹720</span>
+</div>
+<div class="flex justify-between items-start group">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors">Arancini Fritti</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Saffron rice balls, ragù core, spicy dip</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹580</span>
+</div>
+</div>
+</section>
+<!-- Specialty Pizzas Section -->
+<section class="relative">
+<div class="absolute -top-6 -right-6 z-10">
+<div class="bg-primary text-white text-xs font-bold px-4 py-2 signature-badge shadow-lg uppercase tracking-widest rotate-6">
+              Chef's Pride
+            </div>
+</div>
+<div class="bg-surface-container-lowest p-10 wobbly-border border-2 border-primary/10 shadow-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">local_pizza</span>
+</div>
+<h2 class="font-headline text-3xl font-black text-primary mb-12 flex items-center gap-3">
+              Specialty Pizzas
+              <span class="material-symbols-outlined text-[#C4622D]">eco</span>
+</h2>
+<!-- Featured Item: La Regina Nera -->
+<div class="mb-12 p-6 bg-[#F5F0E8] rounded-xl border-2 border-dashed border-primary/20 relative">
+<div class="absolute -top-4 -left-4 bg-primary text-white font-label font-bold px-3 py-1 text-xs rounded rotate-[-4deg]">SIGNATURE</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-2xl font-black text-primary italic">La Regina Nera</h3>
+<p class="text-on-surface-variant mt-2 font-label leading-relaxed max-w-sm">
+                    Our crowning achievement. Black garlic base, buffalo mozzarella, truffle oil, and hand-harvested sea salt.
+                  </p>
+</div>
+<span class="font-headline text-2xl font-black text-primary">₹1,450</span>
+</div>
+</div>
+<div class="space-y-10">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-tertiary">Pistacchio e Burrata</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Sicilian pistachio pesto, mortadella, fresh burrata</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹1,350</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-tertiary">Funghi Selvatici</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Wild forest mushrooms, taleggio, thyme</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹1,250</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Classic & White -->
+<div class="lg:col-span-6 space-y-20 pt-10 md:pt-0">
+<!-- Classic Pizzas Section -->
+<section class="bg-surface-container-high p-8 wobbly-border border border-[#8f000d]/10 shadow-sm relative">
+<div class="absolute -bottom-8 -right-4 opacity-10 rotate-45">
+<span class="material-symbols-outlined text-[120px] text-[#C4622D]">oven_gen</span>
+</div>
+<div class="flex items-center gap-4 mb-10">
+<div class="flex-grow border-b border-dashed border-[#C4622D]/20"></div>
+<h2 class="font-headline text-3xl font-bold text-[#C4622D]">Classic Pizzas</h2>
+</div>
+<div class="space-y-10">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Margherita Verace</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">San Marzano tomatoes, fior di latte, basil, EVO</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹950</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Diavola</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Spicy calabrese salami, chili flakes, red onion</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹1,150</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Quattro Formaggi</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Gorgonzola, fontina, parmigiano, mozzarella</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹1,200</span>
+</div>
+</div>
+</section>
+<!-- White Pizzas Section -->
+<section class="bg-surface-container-low p-8 wobbly-border border border-[#8f000d]/10 shadow-sm">
+<div class="mb-10 text-center">
+<h2 class="font-headline text-3xl font-bold text-tertiary inline-block px-4 hand-drawn-underline pb-4">White Pizzas</h2>
+</div>
+<div class="space-y-10">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Patate e Rosmarino</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Thinly sliced potato, rosemary, smoked scamorza</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹950</span>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline text-xl font-bold text-on-surface">Boscaiola</h3>
+<p class="text-sm text-on-surface-variant font-label mt-1">Italian sausage, mushrooms, cream, parsley</p>
+</div>
+<span class="font-headline text-lg font-bold text-primary">₹1,150</span>
+</div>
+</div>
+</section>
+<!-- Visual Accent Image -->
+<div class="relative group mt-12">
+<div class="absolute inset-0 bg-[#C4622D]/10 translate-x-2 translate-y-2 rounded-xl -z-10 wobbly-border"></div>
+<img alt="Gourmet Pizza" class="w-full h-80 object-cover wobbly-border grayscale-[0.2] hover:grayscale-0 transition-all duration-700 shadow-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrTvI3BUs478nxc9oLdylwVl7X7qKrz8fV3_Xds9fO0P2qrVnFWAVWQWY2YtbEmr4wWhX6IeuYo5FaTXOejs0QzghYVB2ikf67GIpaVOCJ-AD1OemruQvO2KRy4n10CkKj5TayKhwgj-yWQQxzPZCqrCFJXBDfXBu1QnisHcC8wWB7ESJUE9CQOk8xoV7TmRQfeLLH4-u5dKoHWKPxfUUBKf4xrbY4G2fBZA7nN9eU5PNFPJhxHMkbfssPKuOBcz9eI6vjqX5gEw"/>
+<div class="absolute top-4 left-4 bg-[#F5F0E8]/80 backdrop-blur-sm px-4 py-1 text-xs font-bold text-tertiary uppercase tracking-tighter">
+            Est. 1954
+          </div>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<section class="bg-[#F5F0E8] py-24 px-6 text-center border-t border-dashed border-[#8f000d]/10">
+<div class="max-w-2xl mx-auto space-y-8">
+<h2 class="font-headline text-4xl font-black text-tertiary italic">Ready for a taste?</h2>
+<p class="text-on-surface-variant font-body text-lg">Our ovens are fired up from noon until midnight. Walk-ins are welcome, but bookings are beloved.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<button class="bg-primary text-on-primary px-10 py-4 font-headline text-xl font-bold wobbly-border shadow-lg hover:scale-105 active:scale-95 transition-all">
+            Order for Delivery
+          </button>
+<button class="border-2 border-[#C4622D] text-[#C4622D] bg-[#F5F0E8] px-10 py-4 font-headline text-xl font-bold wobbly-border hover:bg-[#C4622D]/5 transition-all">
+            Reserve a Table
+          </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#EBE4D9] border-t-2 border-[#8f000d]/5 shadow-[0_-4px_20px_rgba(27,28,26,0.03)] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start p-12 gap-8 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-4">
+<div class="text-2xl font-serif font-bold text-[#603d16]">Tenya's Pizza</div>
+<p class="font-serif text-sm leading-relaxed max-w-xs text-[#603d16]">
+          Crafting memories through fire, flour, and the pursuit of the perfect crust since our first wood-fired oven in the hills.
+        </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-bold text-[#8f000d] uppercase text-xs tracking-widest mb-2">Explore</span>
+<a class="text-[#603d16] font-serif text-sm hover:text-[#8f000d]" href="#">Home</a>
+<a class="text-[#603d16] font-serif text-sm font-bold underline decoration-[#C4622D] hover:text-[#8f000d]" href="#">Menu</a>
+<a class="text-[#603d16] font-serif text-sm hover:text-[#8f000d]" href="#">About</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-bold text-[#8f000d] uppercase text-xs tracking-widest mb-2">Connect</span>
+<a class="text-[#603d16] font-serif text-sm hover:text-[#8f000d]" href="#">Contact</a>
+<a class="text-[#603d16] font-serif text-sm hover:text-[#8f000d]" href="#">Order</a>
+<a class="text-[#603d16] font-serif text-sm hover:text-[#8f000d]" href="#">Reserve</a>
+</div>
+<div class="flex flex-col gap-2 col-span-2 md:col-span-1">
+<span class="font-bold text-[#8f000d] uppercase text-xs tracking-widest mb-2">Location</span>
+<p class="text-[#603d16] font-serif text-sm leading-tight">
+            12 Via Pomodoro,<br/>Heritage Quarter,<br/>Delhi 110001
+          </p>
+</div>
+</div>
+</div>
+<div class="px-12 pb-8 text-center md:text-left border-t border-[#8f000d]/5 pt-8">
+<span class="font-serif text-sm text-[#603d16] opacity-60">© 2025 Tenya’s Pizza. Made with flour and love.</span>
+</div>
+</footer>
+</body></html>

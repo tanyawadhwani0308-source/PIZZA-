@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | Tenya’s Pizza</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Caveat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#603d16",
+                        "surface-container": "#efeeea",
+                        "surface-container-highest": "#e4e2de",
+                        "surface-variant": "#e4e2de",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#92030f",
+                        "error-container": "#ffdad6",
+                        "primary": "#8f000d",
+                        "inverse-surface": "#30312e",
+                        "secondary": "#586330",
+                        "surface-container-low": "#f5f3ef",
+                        "surface-dim": "#dbdad6",
+                        "background": "#F5F0E8",
+                        "surface-container-high": "#eae8e4",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#d8e6a6",
+                        "outline": "#8e706d",
+                        "on-secondary-fixed-variant": "#404b1b",
+                        "primary-container": "#b22222",
+                        "tertiary-fixed-dim": "#f0bd8b",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#5a403e",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdcbd",
+                        "on-tertiary-fixed-variant": "#623f18",
+                        "on-secondary-container": "#5c6834",
+                        "outline-variant": "#e2beba",
+                        "inverse-on-surface": "#f2f0ed",
+                        "primary-fixed": "#ffdad6",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "surface-bright": "#F5F0E8",
+                        "on-background": "#1b1c1a",
+                        "surface": "#F5F0E8",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#ffb4ac",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bfcd8f",
+                        "on-tertiary-container": "#ffcb9a",
+                        "on-surface": "#1b1c1a",
+                        "on-secondary-fixed": "#171e00",
+                        "surface-tint": "#b52424",
+                        "on-tertiary-fixed": "#2c1600",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#dbe9a9",
+                        "on-primary-container": "#ffc8c2",
+                        "tertiary-container": "#7b542b",
+                        "on-primary-fixed": "#410003"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"],
+                        "handwritten": ["Caveat", "cursive"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .sketched-border {
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            border: 2px solid rgba(142, 112, 109, 0.4);
+        }
+        .gingham-pattern {
+            position: relative;
+        }
+        .gingham-pattern::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0.1;
+            pointer-events: none;
+            background-image: 
+                linear-gradient(90deg, #8f000d 50%, transparent 50%),
+                linear-gradient(#8f000d 50%, transparent 50%);
+            background-size: 40px 40px;
+            z-index: -1;
+        }
+        .taped-photo::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            width: 60px;
+            height: 25px;
+            background-color: #ffdcbd;
+            opacity: 0.6;
+            transform: rotate(3deg);
+            z-index: 10;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body gingham-pattern min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-[#F5F0E8] border-b-4 border-double border-[#e2beba]/30 z-50 sticky top-0">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-3xl font-headline font-black text-[#8f000d] italic">Tenya's Pizza</div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight font-bold text-lg">
+<a class="text-[#603d16] hover:text-[#8f000d] hover:rotate-1 transition-transform" href="#">Home</a>
+<a class="text-[#603d16] hover:text-[#8f000d] hover:rotate-1 transition-transform" href="#">Menu</a>
+<a class="text-[#603d16] hover:text-[#8f000d] hover:rotate-1 transition-transform" href="#">About</a>
+<a class="text-[#8f000d] border-b-2 border-[#8f000d] pb-1 font-bold hover:rotate-1 transition-transform" href="#">Gallery</a>
+<a class="text-[#603d16] hover:text-[#8f000d] hover:rotate-1 transition-transform" href="#">Order</a>
+<a class="text-[#603d16] hover:text-[#8f000d] hover:rotate-1 transition-transform" href="#">Reserve</a>
+<a class="text-[#603d16] hover:text-[#8f000d] hover:rotate-1 transition-transform" href="#">Contact</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined text-4xl">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow container mx-auto px-6 py-16 md:py-24">
+<!-- Header Section -->
+<header class="max-w-3xl mx-auto text-center mb-20 relative">
+<span class="absolute -top-12 left-1/2 -translate-x-1/2 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-9xl text-secondary">local_pizza</span>
+</span>
+<h1 class="font-headline text-5xl md:text-7xl text-primary font-black mb-6 italic tracking-tighter">
+                The Look of Tenya’s
+            </h1>
+<p class="font-handwritten text-3xl md:text-4xl text-tertiary">
+                “Food this good deserves to be stared at.”
+            </p>
+<div class="mt-8 flex justify-center opacity-40">
+<div class="w-32 h-px bg-outline-variant"></div>
+<div class="mx-4 text-outline-variant italic">❦</div>
+<div class="w-32 h-px bg-outline-variant"></div>
+</div>
+</header>
+<!-- Masonry Photo Grid -->
+<div class="columns-1 md:columns-2 lg:columns-3 gap-12 space-y-12">
+<!-- Gallery Item 1 -->
+<div class="break-inside-avoid relative taped-photo">
+<div class="sketched-border p-4 bg-white shadow-sm transform -rotate-1 hover:rotate-0 transition-all duration-300">
+<div class="relative overflow-hidden aspect-[4/5] sketched-border">
+<img alt="close-up of artisan pizza" class="w-full h-full object-cover" data-alt="extreme close-up of a wood-fired margherita pizza with bubbling mozzarella, fresh basil leaves, and charred leopard spots on the crust" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvFnoPSZsW9H8HV-3BxQ8JIfWNy9elLQ6CaCuNsDOzXONzCbHVOGDflxJBhjYcHWsfLGeOXtRwTAbDyDSqjewxUqdnuRQYS-LkVKz7lE9P6KMCO_DRmf9cLNpSJYh9lUbO4H0TEmdyg4AsGN2Qp7-pHTnuNJXQ5EtbgnILKl17kZIApix96Tu0VxNre25uESDPvCTa4PX_M8MkfpVqKCmmOGlF59BDFajbfPZPlSxzuh4bWmZMazB-o5Galqtq1stIAy6gLafbeQ"/>
+</div>
+<p class="mt-4 font-handwritten text-xl text-center text-outline">Nonna's Masterpiece</p>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="break-inside-avoid relative">
+<div class="sketched-border p-4 bg-white shadow-sm transform rotate-2 hover:rotate-0 transition-all duration-300">
+<div class="relative overflow-hidden aspect-square sketched-border">
+<img alt="wood-fired oven interior" class="w-full h-full object-cover" data-alt="dramatic wide shot of a glowing wood-fired stone oven with orange flames flickering and smoke rising in a rustic kitchen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJO3Tby2oni49_wTKqNEkv_XMLy77Ut8z6J2ljuhwVf6n8ygcVf0VqwWNvVxd_zUxoIpfuTYwNednp5tZSblkH8rCgZDGfZC57cv4Pj_y0hbrSaslgPxJIYbExGBnjAe5HTkmcBKWoNWrqzY2G23JNTZfkgAbWY6awHIg9BfB5eCoK2qzt4LGn_FQiihOSZwU6WzzIoFkE0HRHlK7FVJ7gxAkfaULyM0bInJLaUQixZ2qoeNO4gwBjgdGw8hH3GUISWX9_e0D_Sg"/>
+</div>
+<p class="mt-4 font-handwritten text-xl text-center text-outline">The Heart of the Kitchen</p>
+</div>
+<span class="absolute -bottom-6 -right-6 material-symbols-outlined text-secondary text-5xl opacity-40">eco</span>
+</div>
+<!-- Gallery Item 3 -->
+<div class="break-inside-avoid relative taped-photo">
+<div class="sketched-border p-4 bg-white shadow-sm transform -rotate-2 hover:rotate-0 transition-all duration-300">
+<div class="relative overflow-hidden aspect-[3/4] sketched-border">
+<img alt="candlelit table setting" class="w-full h-full object-cover" data-alt="moody candlelit table setting in a rustic italian bistro with red checkered tablecloth, wine glasses, and a warm intimate glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkm-5E-HDT_ZFwmJhoZQxEd6fGOWO8ZkkXPmm9-8LeSLUJP8qdRCGSjEYDANfL856AmTyxvPFTGFXdqiz1ZVIw3L1pFM_uF8DcGguJSbUYmtyvarZ8ioV7oJlyR80RACvun9YnjI_bjDgp_I8JGq93K7YUmndYBghH3hrKAdnKyVfqEWJCBlqPT8gNAex40FMBv06aLxLatHXZ2AnONzlsa_15J8jnqK4h_nVZUXeZXqNPysIHNp2DA0ChSNvxZbxxKjyF1QtWWg"/>
+</div>
+<p class="mt-4 font-handwritten text-xl text-center text-outline">Saturday Night Glow</p>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="break-inside-avoid relative">
+<div class="sketched-border p-4 bg-white shadow-sm transform rotate-1 hover:rotate-0 transition-all duration-300">
+<div class="relative overflow-hidden aspect-video sketched-border">
+<img alt="rustic interior decor" class="w-full h-full object-cover" data-alt="vintage restaurant interior with exposed brick walls, hanging dried herbs, old photographs in wooden frames, and warm tungsten lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-5LLBCEgx4rTxjsaY57_5umfOZuiTkqarJ5_h5lePeA6wN5zBBqCH1UR_xO4hrsys8FHb6DN9KsZHJqcTukgcgh0LX6X6ecLQGsjbIXuSU0EappZxAlEbp6AcZ53F7rr5wtUzB_KgxTiqW0iZaHypJvsPQvf-9kSU8eRK63ywKVe58sC2y_r10EOmDyeWhPgjrAx1W7doof79AEjvEozf4Jb3vb8LOqIONhfoFcp4RCXWE05QtWcQ5vmvjLj7vpKiw_Aqu9bWxw"/>
+</div>
+<p class="mt-4 font-handwritten text-xl text-center text-outline">The Heritage Corner</p>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="break-inside-avoid relative taped-photo">
+<div class="sketched-border p-4 bg-white shadow-sm transform -rotate-1 hover:rotate-0 transition-all duration-300">
+<div class="relative overflow-hidden aspect-square sketched-border">
+<img alt="chef preparing dough" class="w-full h-full object-cover" data-alt="close-up of flour-dusted hands stretching pizza dough on a wooden board with a sprinkle of flour in the air" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlnNxPMgVUgoJ_L9HeeJ2F5ngl0l7EQSSOFOVT864pqAlahdzM7L6ry6BSSTH7g2XC8CQPxhup_tEOO5vCp00NczBulSeHoZTutEkDO7SxC9uYS8vqE9l1LLyZCK8thYu4mqHFOsm-74hVBW-lMqDmYOUm7iafFEdHAzDnI1w7Y4IMIRyz8iKCvsSKYUYBlP0Td2ZLxZQnNu-5TYqZFRo_Zw8V0jethffYCjjLf1CuG5bK-YfPjdcdM8JtKj3Zn39ib6WGiWMryw"/>
+</div>
+<p class="mt-4 font-handwritten text-xl text-center text-outline">Hand-Stretched Daily</p>
+</div>
+<span class="absolute -top-4 -left-4 material-symbols-outlined text-primary text-4xl opacity-30">favorite</span>
+</div>
+<!-- Gallery Item 6 -->
+<div class="break-inside-avoid relative">
+<div class="sketched-border p-4 bg-white shadow-sm transform rotate-3 hover:rotate-0 transition-all duration-300">
+<div class="relative overflow-hidden aspect-[4/5] sketched-border">
+<img alt="charcuterie board" class="w-full h-full object-cover" data-alt="abundant rustic charcuterie board with prosciutto, olives, artichokes, and crusty bread on a dark wood surface with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV2kGlNX_65z1y5vKVxirDkftGv8OVOiJA-oDzZuprFYhf9iq1ATapWQEeQ3fATm2u26GGnscQQ-7Abc7qLIIZRlnCbMVFI_NYSGXc51w6xsZKFtuXUU7fpsgUhGP3p9peueMCXJv9ZQIggo79EYQef3SKnqxEqv0mD3omVtSkxnOrfJBRFeT5fBEyGVWIpfpETayvuFULosX4wWeSHlM7Z1ttIh5yY_TlvHxZ447g136s5Y9BsHDwScOKvfeTkHhgca81TuLe1w"/>
+</div>
+<p class="mt-4 font-handwritten text-xl text-center text-outline">The Pre-Game Ritual</p>
+</div>
+</div>
+</div>
+<!-- Annotation / Doodle -->
+<div class="mt-24 text-center">
+<div class="inline-block p-10 sketched-border bg-white border-dashed border-2 border-secondary/30 relative">
+<span class="absolute -top-6 -left-6 material-symbols-outlined text-tertiary text-6xl">format_quote</span>
+<p class="font-headline text-3xl text-tertiary italic max-w-xl mx-auto">
+                    Every ingredient tells a story. Every slice is a chapter.
+                </p>
+<div class="mt-6 flex justify-center gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">local_pizza</span>
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">wine_bar</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#e4e2de] border-t-2 border-dashed border-[#586330]/20 shadow-[0_-4px_20px_rgba(27,28,26,0.05)] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start p-12 gap-8 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-4">
+<div class="text-2xl font-headline font-bold text-[#603d16]">Tenya’s Pizza</div>
+<p class="font-headline text-sm leading-relaxed text-[#603d16] max-w-xs">
+                    Bringing the warmth of a Neapolitan kitchen to your neighborhood since 1985.
+                </p>
+</div>
+<div class="flex flex-wrap gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-label font-bold text-primary uppercase text-xs tracking-widest">Navigation</span>
+<div class="flex flex-col gap-1 font-headline text-sm">
+<a class="text-[#603d16] hover:text-[#8f000d]" href="#">Home</a>
+<a class="text-[#603d16] hover:text-[#8f000d]" href="#">Menu</a>
+<a class="text-[#603d16] hover:text-[#8f000d]" href="#">About</a>
+<a class="font-bold underline decoration-[#586330] text-[#603d16]" href="#">Gallery</a>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label font-bold text-primary uppercase text-xs tracking-widest">Connect</span>
+<div class="flex flex-col gap-1 font-headline text-sm">
+<a class="text-[#603d16] hover:text-[#8f000d]" href="#">Order</a>
+<a class="text-[#603d16] hover:text-[#8f000d]" href="#">Reserve</a>
+<a class="text-[#603d16] hover:text-[#8f000d]" href="#">Contact</a>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-4 self-stretch md:self-auto">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary transition-colors">social_leaderboard</span>
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary transition-colors">photo_camera</span>
+<span class="material-symbols-outlined text-tertiary cursor-pointer hover:text-primary transition-colors">share</span>
+</div>
+<p class="font-headline text-sm text-[#603d16] opacity-70">© 2025 Tenya’s Pizza</p>
+</div>
+</div>
+</footer>
+</body></html>

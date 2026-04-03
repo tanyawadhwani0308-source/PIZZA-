@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MousePointer2, Clock, CheckCircle, Flame, Pizza } from 'lucide-react';
+import { MousePointer2, CheckCircle, Flame } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,6 +81,7 @@ const Navbar = () => {
           <a href="#about" className="hover:text-tenya-yellow transition-colors hover:-translate-y-[1px]">The Dough</a>
           <a href="#menu" className="hover:text-tenya-yellow transition-colors hover:-translate-y-[1px]">Menu</a>
           <a href="#process" className="hover:text-tenya-yellow transition-colors hover:-translate-y-[1px]">Process</a>
+          <Link to="/contact" className="hover:text-tenya-yellow transition-colors hover:-translate-y-[1px]">Contact</Link>
         </div>
         <MagneticButton className="bg-tenya-yellow text-tenya-dark font-heading uppercase text-sm px-6 py-3">
           Order Now

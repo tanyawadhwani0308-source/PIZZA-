@@ -1,51 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-tenya-dark text-tenya-cream font-body overflow-x-hidden antialiased;
+    background-color: #F5F0E8;
+    color: #2C1810;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* Gingham background texture */
+    background-image:
+      linear-gradient(45deg, rgba(139, 26, 26, 0.06) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(139, 26, 26, 0.06) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(139, 26, 26, 0.06) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(139, 26, 26, 0.06) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
   }
 }
 
-@layer utilities {
-  .noise-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0.15;
-    filter: url(#cinematic-noise);
+@layer components {
+  /* Wobbly rustic border */
+  .wobbly-border {
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
   }
 
-  /* Text stroke effect for the drama typography */
-  .text-stroke-accent {
-    -webkit-text-stroke: 1px #FFC107;
-    color: transparent;
+  /* Hand-drawn underline effect */
+  .hand-drawn-underline {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgba(196, 98, 45, 0.5);
   }
 
-  .clip-checkerboard {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  /* Rustic card style */
+  .rustic-card {
+    background-color: #F5F0E8;
+    border: 2px solid rgba(139, 26, 26, 0.2);
+    box-shadow: 4px 4px 0px rgba(139, 26, 26, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .rustic-card:hover {
+    transform: translateY(-2px) rotate(0.5deg);
+    box-shadow: 6px 6px 0px rgba(139, 26, 26, 0.2);
+  }
+
+  /* Sketchy button */
+  .btn-rustic {
+    @apply bg-pizza-red text-pizza-cream px-8 py-4 font-heading font-bold text-lg transition-all duration-150;
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    box-shadow: 4px 4px 0px rgba(139, 26, 26, 0.3);
+  }
+
+  .btn-rustic:hover {
+    transform: translateY(-1px) rotate(-0.5deg);
+    box-shadow: 6px 6px 0px rgba(139, 26, 26, 0.4);
+  }
+
+  .btn-rustic:active {
+    transform: translateY(1px);
+    box-shadow: 2px 2px 0px rgba(139, 26, 26, 0.3);
+  }
+
+  /* Sketched line input */
+  .sketched-input {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(139, 26, 26, 0.4);
+    padding: 8px 4px;
+    outline: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #2C1810;
+    width: 100%;
+    transition: border-color 0.2s;
+  }
+
+  .sketched-input:focus {
+    border-bottom-color: #8B1A1A;
+  }
+
+  .sketched-input::placeholder {
+    color: rgba(139, 26, 26, 0.35);
+    font-style: italic;
+  }
+
+  /* Section label */
+  .section-label {
+    @apply text-xs font-label font-bold uppercase tracking-widest text-pizza-olive;
   }
 }
 
-/* Custom CSS to hide scrollbar but keep functionality */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #100E0E;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #D41B2C;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #FFC107;
+/* Parchment overlay */
+.parchment-overlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(139, 26, 26, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(139, 26, 26, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(139, 26, 26, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(139, 26, 26, 0.05) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  pointer-events: none;
+  z-index: 0;
 }

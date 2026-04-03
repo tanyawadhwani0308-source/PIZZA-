@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reservations | Tenya's Pizza</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary": "#603d16",
+              "surface-container": "#efeeea",
+              "surface-container-highest": "#e4e2de",
+              "surface-variant": "#e4e2de",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#92030f",
+              "error-container": "#ffdad6",
+              "primary": "#8f000d",
+              "inverse-surface": "#30312e",
+              "secondary": "#586330",
+              "surface-container-low": "#f5f3ef",
+              "surface-dim": "#dbdad6",
+              "background": "#fbf9f5",
+              "surface-container-high": "#eae8e4",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#d8e6a6",
+              "outline": "#8e706d",
+              "on-secondary-fixed-variant": "#404b1b",
+              "primary-container": "#b22222",
+              "tertiary-fixed-dim": "#f0bd8b",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#5a403e",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdcbd",
+              "on-tertiary-fixed-variant": "#623f18",
+              "on-secondary-container": "#5c6834",
+              "outline-variant": "#e2beba",
+              "inverse-on-surface": "#f2f0ed",
+              "primary-fixed": "#ffdad6",
+              "primary-fixed-dim": "#ffb4ac",
+              "surface-bright": "#fbf9f5",
+              "on-background": "#1b1c1a",
+              "surface": "#fbf9f5",
+              "on-error-container": "#93000a",
+              "inverse-primary": "#ffb4ac",
+              "error": "#ba1a1a",
+              "secondary-fixed-dim": "#bfcd8f",
+              "on-tertiary-container": "#ffcb9a",
+              "on-surface": "#1b1c1a",
+              "on-secondary-fixed": "#171e00",
+              "surface-tint": "#b52424",
+              "on-tertiary-fixed": "#2c1600",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#dbe9a9",
+              "on-primary-container": "#ffc8c2",
+              "tertiary-container": "#7b542b",
+              "on-primary-fixed": "#410003"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>.hand-drawn-border {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px
+    }
+.sketched-line {
+    background-image: url("data:image/svg+xml,%3Csvg width='600' height='6' viewBox='0 0 600 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4C50 3.5 150 2 300 2.5C450 3 550 4 598 4' stroke='%23e2beba' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: bottom
+    }
+.btn-hand-drawn {
+    clip-path: polygon(2% 5%, 98% 2%, 99% 95%, 4% 98%)
+    }
+.gingham-pattern {
+    background-image: 
+        linear-gradient(90deg, rgba(178, 34, 34, 0.1) 50%, transparent 50%),
+        linear-gradient(rgba(178, 34, 34, 0.1) 50%, transparent 50%);
+    background-size: 40px 40px;
+}
+.scribble-font {
+    font-family: "Plus Jakarta Sans", cursive;
+    font-style: italic
+    }</style>
+</head>
+<body class="text-on-background font-body min-h-screen flex flex-col bg-[#F5F0E8] gingham-pattern">
+<!-- TopNavBar -->
+<header class="bg-[#F5F0E8] dark:bg-stone-900 border-b-4 border-double border-[#e2beba]/30 z-50 sticky top-0">
+<nav class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-3xl font-serif font-black text-[#8f000d] dark:text-red-500 italic">Tenya's Pizza</div>
+<!-- Desktop Nav -->
+<ul class="hidden md:flex gap-8 items-center">
+<li><a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Home</a></li>
+<li><a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Menu</a></li>
+<li><a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">About</a></li>
+<li><a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Gallery</a></li>
+<li><a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Order</a></li>
+<li><a class="text-[#8f000d] dark:text-red-400 border-b-2 border-[#8f000d] pb-1 font-serif tracking-tight font-bold text-lg" href="#">Reserve</a></li>
+<li><a class="text-[#603d16] dark:text-stone-400 hover:text-[#8f000d] font-serif tracking-tight font-bold text-lg hover:rotate-1 transition-transform" href="#">Contact</a></li>
+</ul>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center py-16 px-4 relative overflow-hidden">
+<!-- Floating Botanical Doodles -->
+<div class="absolute top-20 left-10 opacity-20 pointer-events-none rotate-12">
+<span class="material-symbols-outlined text-secondary text-8xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="absolute bottom-20 right-10 opacity-20 pointer-events-none -rotate-12">
+<span class="material-symbols-outlined text-primary text-9xl" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<!-- Reservation Container -->
+<div class="max-w-4xl w-full p-8 md:p-12 border-4 border-primary hand-drawn-border relative shadow-[0_-4px_20px_rgba(27,28,26,0.05)] bg-[#F5F0E8]">
+<!-- Taped Image Accent -->
+<div class="absolute -top-10 -right-6 md:block hidden rotate-6">
+<div class="bg-tertiary-fixed/40 h-8 w-24 absolute -top-4 left-1/2 -translate-x-1/2 z-10"></div>
+<div class="w-48 h-64 bg-surface-container-lowest p-2 shadow-lg border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="top down view of a warm candlelit italian restaurant table with red checkered tablecloth and a bottle of wine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs9Qn50RoKltCl9jGh4IiXIqLvRXJeJ5J4QHkKv_Z2oUgIuuyzqjoBJQHFff6C4L2blLESjL33XZJzAtIFJ23dxMs8-BY1umfKLeW6-nGPQEYWyfFTvS4gPrLIJiMqnSRaXKxXVsCdEvXqfZ3Byt1KIx9LFQpGVjZE2d9HuKAZswZcXMfkcdCqzFGCkRbreW6Y41lTGxyjLAoQhTcUD3lDhsvHRjmRd2GSGGTGDDRKnA7eoSOalDShIxVmVLC9Kuao6wYx7nRRTA"/>
+</div>
+</div>
+<div class="max-w-2xl">
+<h1 class="font-headline text-5xl md:text-6xl font-black text-primary mb-4 leading-tight">
+                    Secure Your Table
+                </h1>
+<p class="font-body text-tertiary text-lg mb-12 max-w-lg">
+                    Whether you’re planning a quiet dinner or a loud celebration — there’s always a seat for you at Tenya’s.
+                </p>
+<!-- Reservation Form -->
+<form class="space-y-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+<!-- Name Field -->
+<div class="flex flex-col">
+<label class="scribble-font text-secondary font-bold mb-1 ml-2 -rotate-1" for="name">Name</label>
+<input class="bg-transparent border-none focus:ring-0 sketched-line pb-2 font-body text-on-surface placeholder-on-surface-variant/40" id="name" name="name" placeholder="Who are we welcoming?" type="text"/>
+</div>
+<!-- Date Field -->
+<div class="flex flex-col">
+<label class="scribble-font text-secondary font-bold mb-1 ml-2 rotate-1" for="date">Date</label>
+<input class="bg-transparent border-none focus:ring-0 sketched-line pb-2 font-body text-on-surface" id="date" name="date" type="date"/>
+</div>
+<!-- Time Field -->
+<div class="flex flex-col">
+<label class="scribble-font text-secondary font-bold mb-1 ml-2 -rotate-1" for="time">Time</label>
+<input class="bg-transparent border-none focus:ring-0 sketched-line pb-2 font-body text-on-surface" id="time" name="time" type="time"/>
+</div>
+<!-- Party Size Field -->
+<div class="flex flex-col">
+<label class="scribble-font text-secondary font-bold mb-1 ml-2 rotate-1" for="party">Party Size</label>
+<select class="bg-transparent border-none focus:ring-0 sketched-line pb-2 font-body text-on-surface appearance-none" id="party" name="party">
+<option value="2">Table for 2</option>
+<option value="4">Group of 4</option>
+<option value="6">Table for 6</option>
+<option value="8+">Family Party (8+)</option>
+</select>
+</div>
+</div>
+<!-- Special Requests -->
+<div class="flex flex-col">
+<label class="scribble-font text-secondary font-bold mb-1 ml-2 -rotate-1" for="requests">Special Requests</label>
+<textarea class="bg-transparent border-none focus:ring-0 sketched-line pb-2 font-body text-on-surface placeholder-on-surface-variant/40" id="requests" name="requests" placeholder="Birthdays, allergies, or window seats..." rows="2"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-6">
+<button class="btn-hand-drawn bg-primary-container text-on-primary px-10 py-5 font-headline font-bold text-xl hover:scale-105 hover:-rotate-1 transition-all active:scale-95 duration-75 shadow-lg flex items-center gap-3" type="submit">
+                            Confirm Reservation
+                            <span class="material-symbols-outlined">local_pizza</span>
+</button>
+</div>
+</form>
+<!-- Annotation doodle -->
+<div class="mt-12 flex items-center gap-4 text-tertiary/60">
+<span class="material-symbols-outlined text-4xl">edit_note</span>
+<p class="scribble-font text-sm italic">
+                        "Tables are held for 15 minutes past your booking. See you soon!"
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#F5F0E8] dark:bg-stone-800 border-t-2 border-dashed border-[#586330]/20 shadow-[0_-4px_20px_rgba(27,28,26,0.05)] mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-start p-12 gap-8 w-full max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-2xl font-serif font-bold text-[#603d16] dark:text-stone-200">Tenya’s Pizza</div>
+<p class="font-serif text-sm leading-relaxed text-on-surface-variant max-w-xs">
+                    Hand-crafted dough, locally sourced toppings, and a lot of heart in every slice.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-2">
+<span class="font-label font-bold text-primary text-xs uppercase tracking-widest">Navigation</span>
+<a class="font-serif text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Home</a>
+<a class="font-serif text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Menu</a>
+<a class="font-serif text-sm text-[#8f000d] font-bold underline decoration-[#586330]" href="#">Reserve</a>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label font-bold text-primary text-xs uppercase tracking-widest">Connect</span>
+<a class="font-serif text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Instagram</a>
+<a class="font-serif text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Facebook</a>
+<a class="font-serif text-sm text-[#603d16] dark:text-stone-400 hover:text-[#8f000d]" href="#">Contact</a>
+</div>
+</div>
+<div class="text-[#603d16] dark:text-stone-400 font-serif text-sm self-end">
+                © 2025 Tenya’s Pizza
+            </div>
+</div>
+</footer>
+</body></html>
