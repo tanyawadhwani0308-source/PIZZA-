@@ -5,37 +5,37 @@ const pizzas = [
   {
     id: 1, name: 'Margherita', category: 'classic', price: 450, time: '20 min',
     desc: 'San Marzano tomatoes, buffalo mozzarella, basil, EVOO',
-    img: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=500&fit=crop',
+    img: '/images/order/margherita.jpg',
     spice: 0,
   },
   {
     id: 2, name: 'Bombay BBQ', category: 'bombay', price: 850, time: '25 min',
     desc: 'Smoked chicken, makhani drizzle, red onions, cilantro, chillies',
-    img: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=500&fit=crop',
+    img: '/images/order/bombayBBQ .jpg',
     spice: 3, badge: '🔥 Best Seller',
   },
   {
     id: 3, name: 'Paneer Crunch', category: 'bombay', price: 799, time: '22 min',
     desc: 'Charred paneer tikka, capsicum, mint chutney aioli, pomegranate',
-    img: 'https://images.unsplash.com/photo-1573821663912-6df460f9c684?q=80&w=500&fit=crop',
+    img: '/images/order/pannercrunch.jpg',
     spice: 2,
   },
   {
     id: 4, name: 'Diavola', category: 'classic', price: 550, time: '20 min',
     desc: 'Spicy Calabrian salami, chilli flakes, crushed tomato, mozzarella',
-    img: 'https://images.unsplash.com/photo-1560717845-968823efbee1?q=80&w=500&fit=crop',
+    img: '/images/order/diavola.jpg',
     spice: 3,
   },
   {
-    id: 5, name: 'Wild Mushroom', category: 'veggie', price: 650, time: '20 min',
+    id: 5, name: 'Wild Mushroom', category: 'veggie', price: 699, time: '20 min',
     desc: 'Truffle oil, mixed wild mushrooms, fresh thyme, pecorino shavings',
-    img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=500&fit=crop',
+    img: '/images/order/Wild Mushroom Pizza.jpg',
     spice: 0,
   },
   {
-    id: 6, name: 'Keema Masala', category: 'bombay', price: 950, time: '28 min',
+    id: 6, name: 'Keema Masala', category: 'bombay', price: 749, time: '28 min',
     desc: 'Spiced lamb keema, pickled jalapeño, mozzarella, fresh coriander',
-    img: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=500&fit=crop',
+    img: '/images/order/keemamasalaPizza.jpg',
     spice: 3, badge: '🌶️ Chef\'s Pick',
   },
 ];
@@ -125,11 +125,12 @@ export default function OrderOnline() {
               {filtered.map((pizza) => (
                 <div key={pizza.id} className="rustic-card overflow-hidden group">
                   {/* Image */}
-                  <div className="relative h-44 overflow-hidden">
+                  <div className="relative overflow-hidden" style={{ height: '192px' }}>
                     <img
                       src={pizza.img}
                       alt={pizza.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={{ width: '100%', height: '100%' }}
                     />
                     {pizza.badge && (
                       <span className="absolute top-3 left-3 bg-pizza-red text-pizza-cream text-xs font-label font-bold px-2 py-0.5 rounded-full">

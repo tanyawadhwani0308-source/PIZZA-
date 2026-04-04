@@ -30,7 +30,7 @@ const PizzaCard = ({ name, desc, price, badge, featured }) => (
     <div className={`h-0.5 w-10 my-4 ${featured ? 'bg-pizza-cream/40' : 'bg-pizza-terra/40'}`} />
     <p className={`font-body text-sm leading-relaxed mb-6 ${featured ? 'text-pizza-cream/80' : 'text-pizza-brown'}`}>{desc}</p>
     <div className="flex justify-between items-center">
-      <span className={`font-serif font-black text-2xl ${featured ? 'text-pizza-cream' : 'text-pizza-terra'}`}>${price}</span>
+      <span className={`font-serif font-black text-2xl ${featured ? 'text-pizza-cream' : 'text-pizza-terra'}`}>₹{price}</span>
       <Link to="/order" className={`text-sm font-label font-bold uppercase tracking-wide px-4 py-2 transition-colors ${featured ? 'bg-pizza-cream text-pizza-red hover:bg-pizza-cream/90' : 'border border-pizza-red text-pizza-red hover:bg-pizza-red hover:text-pizza-cream'}`}
         style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}>
         Order →
@@ -82,7 +82,7 @@ export default function Home() {
               {/* Tape accent */}
               <div className="absolute -top-5 right-8 w-16 h-6 bg-pizza-terra/25 rotate-3 z-20" />
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM58eWgDBbPqEauJ5ivTz_EwH_vl71NcplacFTrJnpCJHK5VnMPl_fv8j8UIv30upY1XJYzqAE-rGveN8Inib9hreg9ttyr7JUtz-qjXqqAjHtgQL3iSeb1AxDluopIEfaPz6TzlLMJORfj1BrL544Y59eyf2GWdcSKZ1YWherkjFIq9wBOF-shLLhDjH9Xgo30APkm0-uMS5R2Np9oCfWxIxlX0YRhmc566r1Qomcx82PoBVKqkDLnAVsWc0uoYDUGFQU6a1ncQ"
+                src="/images/home/craftedinnaples.jpg"
                 alt="Artisanal Neapolitan pizza with blistered crust and fresh mozzarella"
                 className="w-full h-full object-cover"
                 style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
@@ -118,8 +118,8 @@ export default function Home() {
             <div className="md:col-span-2 rustic-card p-0 overflow-hidden flex flex-col md:flex-row gap-0">
               <div className="w-full md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPTO1HFUusYTLuNAXYNQQliFNzxsz4ASvOpcNR4p8_DPm-cQKsUNfOaDtrvk_bQO82gmYvEQ7sqNrSyHQlLpNze5pwwgvz6hldoWvNr1wC-OrZr0ow1X7XDgMO_URzXKtQUs5Xon2SjUoX92tOgCCtjcYFmlMSLeaSd78wKCaMOe8LpqevslNQMw"
-                  alt="Italian wood fired oven"
+                  src="/images/home/thedailysheet.jpg"
+                  alt="The daily sheet"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
               </div>
@@ -157,19 +157,19 @@ export default function Home() {
             <PizzaCard
               name="The Classic"
               desc="San Marzano tomatoes, fresh buffalo mozzarella, torn basil, extra virgin olive oil."
-              price="18"
+              price="450"
             />
             <PizzaCard
               name="Bombay BBQ"
               desc="Smoked chicken, makhani drizzle, red onions, cilantro. A collision of worlds."
-              price="24"
+              price="850"
               badge="House Favourite"
               featured={true}
             />
             <PizzaCard
               name="Paneer Crunch"
               desc="Charred paneer tikka, crisp capsicum, mint chutney aioli, pomegranate seeds."
-              price="22"
+              price="799"
             />
           </div>
 

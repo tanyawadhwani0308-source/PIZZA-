@@ -11,11 +11,14 @@ import Gallery from './pages/Gallery'
 import OrderOnline from './pages/OrderOnline'
 import Reservations from './pages/Reservations'
 import Contact from './pages/Contact'
+import Login from './pages/Login'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
+        {/* Login — standalone, no Navbar/Footer */}
+        <Route path="/login" element={<Login />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />

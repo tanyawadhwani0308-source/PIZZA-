@@ -7,7 +7,6 @@ const initialForm = {
   email: '',
   phone: '',
   date: '',
-  time: '',
   partySize: '2',
   specialRequests: '',
 };
@@ -15,48 +14,65 @@ const initialForm = {
 // Returns an error string if the time is outside restaurant hours, else null.
 function validateBookingTime(dateStr, timeStr) {
   if (!dateStr || !timeStr) return null;
-  const date = new Date(dateStr + 'T00:00:00'); // parse in local time
-  const day = date.getDay(); // 0=Sun,1=Mon,...,6=Sat
+  const date = new Date(dateStr + 'T00:00:00');
+  const day = date.getDay();
   const [h, m] = timeStr.split(':').map(Number);
   const mins = h * 60 + m;
-  const isWeekend = day === 0 || day === 6; // Sun or Sat
-  const openMins  = isWeekend ? 10 * 60 : 11 * 60; // 10:00 or 11:00
-  const closeMins = isWeekend ? 23 * 60 : 22 * 60; // 23:00 or 22:00
+  const isWeekend = day === 0 || day === 6;
+  const openMins  = isWeekend ? 10 * 60 : 11 * 60;
+  const closeMins = isWeekend ? 23 * 60 : 22 * 60;
   if (mins < openMins || mins >= closeMins) {
     return "We're closed at this time! Our hours are Mon–Fri 11am–10pm, Sat–Sun 10am–11pm.";
   }
   return null;
 }
 
+// Convert hour(1-12) + ampm to 24-hour integer
+function to24Hour(hour12, ampm) {
+  let h = parseInt(hour12, 10);
+  if (ampm === 'AM') {
+    if (h === 12) h = 0;
+  } else {
+    if (h !== 12) h += 12;
+  }
+  return h;
+}
+
 export default function Reservations() {
   const [form, setForm] = useState(initialForm);
-  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+  const [timePicker, setTimePicker] = useState({ hour: '7', minute: '00', ampm: 'PM' });
+  const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
-  // Today's date as YYYY-MM-DD (no past dates)
   const todayStr = new Date().toISOString().split('T')[0];
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    // Clear time-related errors when user changes date or time
-    if ((e.target.name === 'date' || e.target.name === 'time') && status === 'error') {
+    if (e.target.name === 'date' && status === 'error') {
       setErrorMsg('');
       setStatus('idle');
     }
   };
 
+  const handleTimeChange = (e) => {
+    setTimePicker((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (status === 'error') { setErrorMsg(''); setStatus('idle'); }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Required field check
-    if (!form.name || !form.email || !form.date || !form.time || !form.partySize) {
+    // Build a valid HH:MM time string from the three dropdowns
+    const h24 = to24Hour(timePicker.hour, timePicker.ampm);
+    const timeStr = `${String(h24).padStart(2, '0')}:${timePicker.minute}`;
+
+    if (!form.name || !form.email || !form.date || !form.partySize) {
       setErrorMsg('Please fill in all required fields.');
       setStatus('error');
       return;
     }
 
-    // Restaurant hours check
-    const hoursError = validateBookingTime(form.date, form.time);
+    const hoursError = validateBookingTime(form.date, timeStr);
     if (hoursError) {
       setErrorMsg(hoursError);
       setStatus('error');
@@ -72,7 +88,7 @@ export default function Reservations() {
         email: form.email,
         phone: form.phone,
         date: form.date,
-        time: form.time,
+        time: timeStr,
         partySize: form.partySize,
         specialRequests: form.specialRequests,
         createdAt: serverTimestamp(),
@@ -80,6 +96,7 @@ export default function Reservations() {
       });
       setStatus('success');
       setForm(initialForm);
+      setTimePicker({ hour: '7', minute: '00', ampm: 'PM' });
     } catch (err) {
       console.error('Reservation error:', err);
       setErrorMsg('Something went wrong, please try again.');
@@ -90,11 +107,13 @@ export default function Reservations() {
   const getLabelClass = (rotate = '') =>
     `font-serif italic font-bold text-pizza-terra text-sm mb-1 ml-1 block ${rotate}`;
 
+  const selectClass =
+    'sketched-input bg-transparent cursor-pointer text-center appearance-none';
+
   return (
     <div className="relative">
       {/* Header */}
       <section className="py-20 px-6 md:px-10 relative overflow-hidden">
-        {/* Doodles */}
         <div className="absolute top-16 left-6 text-8xl opacity-10 rotate-12 hidden md:block">🌿</div>
         <div className="absolute bottom-4 right-8 text-9xl opacity-10 -rotate-6 hidden md:block">🍽️</div>
 
@@ -157,67 +176,45 @@ export default function Reservations() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
                     {/* Name */}
                     <div className="flex flex-col">
-                      <label className={getLabelClass('-rotate-[0.5deg]')} htmlFor="name">
-                        Name *
-                      </label>
+                      <label className={getLabelClass('-rotate-[0.5deg]')} htmlFor="name">Name *</label>
                       <input
                         className="sketched-input"
-                        id="name"
-                        name="name"
-                        type="text"
+                        id="name" name="name" type="text"
                         placeholder="Who are we welcoming?"
-                        value={form.name}
-                        onChange={handleChange}
-                        required
+                        value={form.name} onChange={handleChange} required
                       />
                     </div>
 
                     {/* Email */}
                     <div className="flex flex-col">
-                      <label className={getLabelClass('rotate-[0.5deg]')} htmlFor="email">
-                        Email *
-                      </label>
+                      <label className={getLabelClass('rotate-[0.5deg]')} htmlFor="email">Email *</label>
                       <input
                         className="sketched-input"
-                        id="email"
-                        name="email"
-                        type="email"
+                        id="email" name="email" type="email"
                         placeholder="For your confirmation"
-                        value={form.email}
-                        onChange={handleChange}
-                        required
+                        value={form.email} onChange={handleChange} required
                       />
                     </div>
 
                     {/* Phone */}
                     <div className="flex flex-col">
-                      <label className={getLabelClass('-rotate-[0.5deg]')} htmlFor="phone">
-                        Phone
-                      </label>
+                      <label className={getLabelClass('-rotate-[0.5deg]')} htmlFor="phone">Phone</label>
                       <input
                         className="sketched-input"
-                        id="phone"
-                        name="phone"
-                        type="tel"
+                        id="phone" name="phone" type="tel"
                         placeholder="Optional, if we need to reach you"
-                        value={form.phone}
-                        onChange={handleChange}
+                        value={form.phone} onChange={handleChange}
                       />
                     </div>
 
                     {/* Party Size */}
                     <div className="flex flex-col">
-                      <label className={getLabelClass('rotate-[0.5deg]')} htmlFor="partySize">
-                        Party Size *
-                      </label>
+                      <label className={getLabelClass('rotate-[0.5deg]')} htmlFor="partySize">Party Size *</label>
                       <select
                         className="sketched-input bg-transparent cursor-pointer"
-                        id="partySize"
-                        name="partySize"
-                        value={form.partySize}
-                        onChange={handleChange}
-                        required
-                        style={{ appearance: 'none' }}
+                        id="partySize" name="partySize"
+                        value={form.partySize} onChange={handleChange}
+                        required style={{ appearance: 'none' }}
                       >
                         <option value="1">Just me (1)</option>
                         <option value="2">Table for 2</option>
@@ -231,37 +228,65 @@ export default function Reservations() {
 
                     {/* Date */}
                     <div className="flex flex-col">
-                      <label className={getLabelClass('-rotate-[0.5deg]')} htmlFor="date">
-                        Date *
-                      </label>
+                      <label className={getLabelClass('-rotate-[0.5deg]')} htmlFor="date">Date *</label>
                       <input
                         className="sketched-input"
-                        id="date"
-                        name="date"
-                        type="date"
+                        id="date" name="date" type="date"
                         min={todayStr}
-                        value={form.date}
-                        onChange={handleChange}
-                        required
+                        value={form.date} onChange={handleChange} required
                       />
                     </div>
 
-                    {/* Time */}
+                    {/* Time — custom dropdown picker */}
                     <div className="flex flex-col">
-                      <label className={getLabelClass('rotate-[0.5deg]')} htmlFor="time">
-                        Time *
-                      </label>
-                      <input
-                        className="sketched-input"
-                        id="time"
-                        name="time"
-                        type="time"
-                        min="11:00"
-                        max="22:00"
-                        value={form.time}
-                        onChange={handleChange}
-                        required
-                      />
+                      <label className={getLabelClass('rotate-[0.5deg]')}>Time *</label>
+                      <div className="flex items-center gap-2">
+                        {/* Hour */}
+                        <select
+                          name="hour"
+                          value={timePicker.hour}
+                          onChange={handleTimeChange}
+                          className={selectClass}
+                          style={{ appearance: 'none', flex: 1 }}
+                          aria-label="Hour"
+                        >
+                          {Array.from({ length: 12 }, (_, i) => String(i + 1)).map((h) => (
+                            <option key={h} value={h}>{h.padStart(2, '0')}</option>
+                          ))}
+                        </select>
+
+                        <span className="font-serif font-black text-pizza-terra text-xl select-none">:</span>
+
+                        {/* Minute */}
+                        <select
+                          name="minute"
+                          value={timePicker.minute}
+                          onChange={handleTimeChange}
+                          className={selectClass}
+                          style={{ appearance: 'none', flex: 1 }}
+                          aria-label="Minute"
+                        >
+                          {['00', '15', '30', '45'].map((m) => (
+                            <option key={m} value={m}>{m}</option>
+                          ))}
+                        </select>
+
+                        {/* AM / PM */}
+                        <select
+                          name="ampm"
+                          value={timePicker.ampm}
+                          onChange={handleTimeChange}
+                          className={selectClass}
+                          style={{ appearance: 'none', flex: 1 }}
+                          aria-label="AM or PM"
+                        >
+                          <option value="AM">AM</option>
+                          <option value="PM">PM</option>
+                        </select>
+                      </div>
+                      <p className="text-xs text-pizza-brown/50 font-label mt-1 ml-1">
+                        Mon–Fri 11am–10pm · Sat–Sun 10am–11pm
+                      </p>
                     </div>
                   </div>
 
@@ -272,12 +297,10 @@ export default function Reservations() {
                     </label>
                     <textarea
                       className="sketched-input resize-none"
-                      id="specialRequests"
-                      name="specialRequests"
+                      id="specialRequests" name="specialRequests"
                       placeholder="Birthdays, allergies, window seats, dietary needs..."
                       rows={3}
-                      value={form.specialRequests}
-                      onChange={handleChange}
+                      value={form.specialRequests} onChange={handleChange}
                     />
                   </div>
 

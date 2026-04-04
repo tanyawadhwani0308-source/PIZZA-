@@ -1,108 +1,133 @@
 import { useState } from 'react';
 
-const galleryImages = [
-  // ── PIZZA ─────────────────────────────────────────────────────────────────
+const galleryData = [
   {
-    id: 1,
-    src: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=900&fit=crop',
-    alt: 'Rustic stone-baked Neapolitan pizza fresh from the oven',
-    label: 'From the Stone',
-    category: 'pizza',
-    span: 'md:col-span-2',
+    id: 'pizza',
+    label: 'Pizza',
+    icon: '🍕',
+    images: [
+      { id: 1, src: '/images/gallery/pizza/fromthestone.jpg',   alt: 'Rustic stone-baked Neapolitan pizza', label: 'From the Stone' },
+      { id: 3, src: '/images/gallery/pizza/margherita .jpg',    alt: 'Classic Margherita with fresh basil', label: 'Margherita' },
+      { id: 6, src: '/images/gallery/pizza/theslice.jpg',       alt: 'Artisan cheese pizza golden and bubbling', label: 'The Slice' },
+      { id: 12, src: '/images/gallery/pizza/perfectlycharred.jpg', alt: 'Perfectly charred Neapolitan crust', label: 'Perfectly Charred' },
+    ],
   },
   {
-    id: 3,
-    src: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=600&fit=crop',
-    alt: 'Classic Margherita pizza with fresh basil',
-    label: 'Margherita',
-    category: 'pizza',
+    id: 'process',
+    label: 'Process',
+    icon: '🧑‍🍳',
+    images: [
+      { id: 2, src: '/images/gallery/process/handtossed.jpg',    alt: 'Chef hand-stretching dough', label: 'Hand-Tossed' },
+      { id: 7, src: '/images/gallery/process/900oven.jpg',       alt: 'Glowing wood-fired oven', label: '900° Oven' },
+      { id: 8, src: '/images/gallery/process/behindthepass.jpg', alt: 'Chef plating a dish in the kitchen', label: 'Behind the Pass' },
+      { id: 11, src: '/images/gallery/process/dustedandready.jpg', alt: 'Flouring the dough before shaping', label: 'Dusted & Ready' },
+    ],
   },
   {
-    id: 6,
-    src: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&fit=crop',
-    alt: 'Artisan cheese pizza golden and bubbling',
-    label: 'The Slice',
-    category: 'pizza',
-  },
-  {
-    id: 12,
-    src: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=600&fit=crop',
-    alt: 'Neapolitan pizza with perfectly charred golden crust',
-    label: 'Perfectly Charred',
-    category: 'pizza',
-  },
-  // ── PROCESS ───────────────────────────────────────────────────────────────
-  {
-    id: 2,
-    src: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?q=80&w=600&fit=crop',
-    alt: 'Chef hand-stretching pizza dough on floured surface',
-    label: 'Hand-Tossed',
-    category: 'process',
-  },
-  {
-    id: 7,
-    src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=600&fit=crop',
-    alt: 'Glowing wood-fired pizza oven mouth',
-    label: '900° Oven',
-    category: 'process',
-    span: 'md:col-span-2',
-  },
-  {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=600&fit=crop',
-    alt: 'Chef in white coat plating a dish in the kitchen',
-    label: 'Behind the Pass',
-    category: 'process',
-  },
-  {
-    id: 11,
-    src: 'https://images.unsplash.com/photo-1607077512783-3e18b3e7a2e9?q=80&w=600&fit=crop',
-    alt: 'Flouring the pizza dough before shaping',
-    label: 'Dusted & Ready',
-    category: 'process',
-  },
-  // ── AMBIANCE ──────────────────────────────────────────────────────────────
-  {
-    id: 4,
-    src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=700&fit=crop',
-    alt: 'Warm cosy restaurant dining room with exposed brick',
-    label: 'The Dining Room',
-    category: 'ambiance',
-  },
-  {
-    id: 5,
-    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=700&fit=crop',
-    alt: 'Candlelit restaurant table set for a romantic dinner',
-    label: 'Date Night',
-    category: 'ambiance',
-    span: 'md:col-span-2',
-  },
-  {
-    id: 10,
-    src: 'https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?q=80&w=600&fit=crop',
-    alt: 'Rustic wooden table with wine glasses and cutlery',
-    label: 'Table Setting',
-    category: 'ambiance',
-  },
-  // ── FOOD ──────────────────────────────────────────────────────────────────
-  {
-    id: 9,
-    src: 'https://images.unsplash.com/photo-1551183053-bf91798d8254?q=80&w=600&fit=crop',
-    alt: 'Fresh burrata with tomatoes and basil on a board',
-    label: 'Antipasti',
-    category: 'food',
+    id: 'ambiance',
+    label: 'Dining Room',
+    icon: '🕯️',
+    images: [
+      { id: 4, src: '/images/gallery/diningroom/diningroom.jpg',  alt: 'Warm restaurant dining room', label: 'The Dining Room' },
+      { id: 5, src: '/images/gallery/diningroom/datenight.jpg',   alt: 'Candlelit table for two', label: 'Date Night' },
+      { id: 10, src: '/images/gallery/diningroom/tablesetting.jpg', alt: 'Rustic table with wine glasses', label: 'Table Setting' },
+    ],
   },
 ];
 
-const categories = ['all', 'pizza', 'process', 'ambiance', 'food'];
+// Zigzag vertical offset per photo index: 0 → up, 1 → down, etc.
+const zigzagY = ['-20px', '20px', '-20px', '20px'];
+const zigzagRot = ['-2deg', '2deg', '-2deg', '2deg'];
+
+function CategoryStrip({ group, onOpen }) {
+  return (
+    <div className="mb-20">
+      {/* Section heading */}
+      <div className="flex items-center gap-3 mb-10">
+        <span className="text-3xl">{group.icon}</span>
+        <h2 className="font-serif font-bold text-3xl text-pizza-red">{group.label}</h2>
+        <div className="flex-1 border-b-2 border-dashed border-pizza-terra/25 ml-2" />
+      </div>
+
+      {/* Thread + photos */}
+      <div className="relative">
+        {/* Red thread SVG behind photos */}
+        <svg
+          className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full pointer-events-none"
+          style={{ height: '6px', zIndex: 0 }}
+          preserveAspectRatio="none"
+        >
+          <line
+            x1="0" y1="3"
+            x2="100%" y2="3"
+            stroke="#C0392B"
+            strokeWidth="2.5"
+            strokeDasharray="8 5"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Photos row */}
+        <div
+          className="flex gap-6 items-center"
+          style={{ paddingBottom: '40px', paddingTop: '40px', position: 'relative', zIndex: 1 }}
+        >
+          {group.images.map((img, i) => (
+            <div
+              key={img.id}
+              className="group relative cursor-pointer flex-shrink-0 shadow-rustic"
+              style={{
+                width: '260px',
+                height: '200px',
+                transform: `translateY(${zigzagY[i % 4]}) rotate(${zigzagRot[i % 4]})`,
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                borderRadius: '8px',
+                overflow: 'hidden',
+              }}
+              onClick={() => onOpen(img)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = `translateY(${zigzagY[i % 4]}) rotate(${zigzagRot[i % 4]}) scale(1.07)`;
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0,0,0,0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = `translateY(${zigzagY[i % 4]}) rotate(${zigzagRot[i % 4]}) scale(1)`;
+                e.currentTarget.style.boxShadow = '';
+              }}
+            >
+              {/* Tape strip */}
+              <div
+                className="absolute -top-2 left-1/2 -translate-x-1/2 z-20"
+                style={{ width: '48px', height: '18px', background: 'rgba(180,140,80,0.3)', borderRadius: '2px' }}
+              />
+
+              <img
+                src={img.src}
+                alt={img.alt}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+
+              {/* Hover overlay — label in red */}
+              <div
+                className="absolute inset-0 flex items-end p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }}
+              >
+                <span
+                  className="font-serif font-bold text-base leading-tight"
+                  style={{ color: '#E74C3C' }}
+                >
+                  {img.label}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState('all');
   const [lightboxImg, setLightboxImg] = useState(null);
-
-  const filtered = activeCategory === 'all'
-    ? galleryImages
-    : galleryImages.filter((img) => img.category === activeCategory);
 
   return (
     <div className="relative">
@@ -121,69 +146,13 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Filter tabs */}
-      <section className="px-6 md:px-10 mb-8">
+      {/* Category strips */}
+      <section className="px-6 md:px-10 pb-24 overflow-x-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap gap-3">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`font-label font-bold text-sm uppercase tracking-widest px-5 py-2 transition-all duration-200 ${
-                  activeCategory === cat
-                    ? 'bg-pizza-red text-pizza-cream shadow-rustic'
-                    : 'border-2 border-pizza-red/30 text-pizza-brown hover:border-pizza-red hover:text-pizza-red'
-                }`}
-                style={{ borderRadius: '255px 15px 225px 15px / 15px 225px 15px 255px' }}
-              >
-                {cat === 'all' ? '🍕 All' : cat.charAt(0).toUpperCase() + cat.slice(1)}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Masonry/Grid Gallery */}
-      <section className="px-6 md:px-10 pb-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
-          {filtered.map((img, i) => (
-            <div
-              key={img.id}
-              className={`group relative overflow-hidden cursor-pointer shadow-rustic hover:shadow-rustic-lg transition-all duration-300 ${img.span || ''} ${i % 3 === 0 ? 'rotate-[-0.3deg]' : i % 3 === 1 ? 'rotate-[0.3deg]' : ''}`}
-              style={{ borderRadius: '15px 255px 15px 225px / 225px 15px 255px 15px' }}
-              onClick={() => setLightboxImg(img)}
-            >
-              {/* Tape effect */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-5 bg-pizza-terra/25 z-20 rotate-2" />
-
-              <div className="aspect-video overflow-hidden">
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-pizza-red/0 group-hover:bg-pizza-red/40 transition-colors duration-300 flex items-end p-4">
-                <span className="font-serif font-bold text-pizza-cream text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
-                  {img.label}
-                </span>
-              </div>
-
-              {/* Category badge */}
-              <div className="absolute top-4 left-4 bg-pizza-cream/90 text-pizza-red text-xs font-label font-bold uppercase tracking-wide px-2 py-0.5 rounded-full">
-                {img.category}
-              </div>
-            </div>
+          {galleryData.map((group) => (
+            <CategoryStrip key={group.id} group={group} onOpen={setLightboxImg} />
           ))}
         </div>
-
-        {filtered.length === 0 && (
-          <div className="text-center py-20 text-pizza-brown/50 font-serif text-xl italic">
-            No images in this category yet...
-          </div>
-        )}
       </section>
 
       {/* Lightbox */}
@@ -197,7 +166,7 @@ export default function Gallery() {
               src={lightboxImg.src}
               alt={lightboxImg.alt}
               className="w-full h-auto shadow-2xl"
-              style={{ borderRadius: '15px 255px 15px 225px / 225px 15px 255px 15px' }}
+              style={{ borderRadius: '12px' }}
             />
             <div className="mt-4 text-center">
               <p className="font-serif font-bold text-pizza-cream text-xl">{lightboxImg.label}</p>

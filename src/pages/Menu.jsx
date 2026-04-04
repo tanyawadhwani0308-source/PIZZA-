@@ -4,10 +4,10 @@ const categories = [
     name: 'Neapolitan Classics',
     icon: '🍕',
     items: [
-      { name: 'Margherita', desc: 'San Marzano tomatoes, fresh buffalo mozzarella, basil, EVOO', price: 18 },
-      { name: 'Marinara', desc: 'The original. Tomato, garlic, oregano — no cheese, pure fire', price: 15 },
-      { name: 'Quattro Formaggi', desc: 'Fior di latte, gorgonzola, pecorino, goat cheese, honey drizzle', price: 22 },
-      { name: 'Diavola', desc: 'Spicy Calabrian salami, chilli, crushed tomatoes, mozzarella', price: 21 },
+      { name: 'Margherita', desc: 'San Marzano tomatoes, fresh buffalo mozzarella, basil, EVOO', price: 450 },
+      { name: 'Marinara', desc: 'The original. Tomato, garlic, oregano — no cheese, pure fire', price: 449 },
+      { name: 'Quattro Formaggi', desc: 'Fior di latte, gorgonzola, pecorino, goat cheese, honey drizzle', price: 649 },
+      { name: 'Diavola', desc: 'Spicy Calabrian salami, chilli, crushed tomatoes, mozzarella', price: 550 },
     ],
   },
   {
@@ -16,10 +16,10 @@ const categories = [
     icon: '🌶️',
     badge: 'House Signature',
     items: [
-      { name: 'Bombay BBQ', desc: 'Smoked chicken, makhani drizzle, red onions, cilantro, liquid fire', price: 24, featured: true },
-      { name: 'Paneer Crunch', desc: 'Charred paneer tikka, crisp capsicum, mint chutney aioli', price: 22 },
-      { name: 'Keema Masala', desc: 'Spiced lamb keema, pickled jalapeño, mozzarella, coriander', price: 26 },
-      { name: 'Chutney Verde', desc: 'Green chutney base, roasted vegetables, goat cheese, pomegranate', price: 20 },
+      { name: 'Bombay BBQ', desc: 'Smoked chicken, makhani drizzle, red onions, cilantro, liquid fire', price: 850, featured: true },
+      { name: 'Paneer Crunch', desc: 'Charred paneer tikka, crisp capsicum, mint chutney aioli', price: 799 },
+      { name: 'Keema Masala', desc: 'Spiced lamb keema, pickled jalapeño, mozzarella, coriander', price: 749 },
+      { name: 'Chutney Verde', desc: 'Green chutney base, roasted vegetables, goat cheese, pomegranate', price: 649 },
     ],
   },
   {
@@ -27,9 +27,9 @@ const categories = [
     name: 'From The Garden',
     icon: '🌿',
     items: [
-      { name: 'Zucchini & Ricotta', desc: 'Shaved zucchini, whipped ricotta, lemon zest, pine nuts', price: 19 },
-      { name: 'Wild Mushroom', desc: 'Truffle oil base, mixed wild mushrooms, thyme, pecorino', price: 21 },
-      { name: 'Caponata', desc: 'Sicilian sweet-sour aubergine relish, capers, olives, burrata', price: 20 },
+      { name: 'Zucchini & Ricotta', desc: 'Shaved zucchini, whipped ricotta, lemon zest, pine nuts', price: 549 },
+      { name: 'Wild Mushroom', desc: 'Truffle oil base, mixed wild mushrooms, thyme, pecorino', price: 699 },
+      { name: 'Caponata', desc: 'Sicilian sweet-sour aubergine relish, capers, olives, burrata', price: 599 },
     ],
   },
   {
@@ -37,9 +37,9 @@ const categories = [
     name: 'Sides & Starters',
     icon: '🥗',
     items: [
-      { name: 'Burrata e Prosciutto', desc: 'Fresh burrata, prosciutto crudo, basil oil, sourdough crostini', price: 16 },
-      { name: 'Arancini (x3)', desc: 'Saffron risotto balls, mozzarella centre, marinara dip', price: 12 },
-      { name: 'Tiramisu', desc: "Nonno Carlo's original recipe. Savoiardi, mascarpone, espresso", price: 10 },
+      { name: 'Burrata e Prosciutto', desc: 'Fresh burrata, prosciutto crudo, basil oil, sourdough crostini', price: 399 },
+      { name: 'Arancini (x3)', desc: 'Saffron risotto balls, mozzarella centre, marinara dip', price: 299 },
+      { name: 'Tiramisu', desc: "Nonno Carlo's original recipe. Savoiardi, mascarpone, espresso", price: 299 },
     ],
   },
 ];
@@ -84,7 +84,7 @@ const MenuSection = ({ category }) => (
             </p>
           </div>
           <span className={`font-serif font-black text-xl shrink-0 ${item.featured ? 'text-pizza-cream' : 'text-pizza-terra'}`}>
-            ${item.price}
+            ₹{item.price}
           </span>
         </div>
       ))}
