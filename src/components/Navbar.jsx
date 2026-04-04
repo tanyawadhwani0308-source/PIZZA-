@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase';
+import { useAuth } from '../context/AuthContext';
 
 const navLinks = [
   { to: '/', label: 'Home' },
@@ -13,6 +16,13 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+    navigate('/login');
+  };
 
   return (
     <header className="bg-pizza-cream border-b-4 border-double border-pizza-tan/50 sticky top-0 z-50 shadow-sm">
@@ -43,13 +53,24 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <Link
-          to="/order"
-          className="hidden lg:inline-flex btn-rustic text-sm px-6 py-3 font-bold"
-        >
-          Order Now 🍕
-        </Link>
+        {/* Desktop Right — Order + Sign Out */}
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            to="/order"
+            className="btn-rustic text-sm px-6 py-3 font-bold"
+          >
+            Order Now 🍕
+          </Link>
+          {user && (
+            <button
+              onClick={handleSignOut}
+              title={`Signed in as ${user.email}`}
+              className="text-xs font-bold uppercase tracking-widest text-pizza-brown hover:text-pizza-red transition-colors border border-pizza-red/30 rounded-full px-4 py-2 hover:bg-pizza-red/5"
+            >
+              Sign Out
+            </button>
+          )}
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -96,6 +117,16 @@ export default function Navbar() {
                 Order Now 🍕
               </Link>
             </li>
+            {user && (
+              <li className="pt-1">
+                <button
+                  onClick={() => { setMobileOpen(false); handleSignOut(); }}
+                  className="w-full text-left font-serif font-bold text-base text-pizza-brown hover:text-pizza-red py-1 border-b border-pizza-tan/30"
+                >
+                  Sign Out
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       )}
